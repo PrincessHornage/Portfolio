@@ -1,13 +1,11 @@
 import React from 'react'
-import Link from 'next/link'
+import 'bulma/css/bulma.min.css';
+import Navbar from './components/navbar';
 
 export default function Home() {
     return (
         <main>
-            <h1>Hello World</h1>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/projects">Projects</Link>
+           <Navbar/>
         </main>
     )
 }
