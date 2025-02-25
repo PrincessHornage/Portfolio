@@ -10,12 +10,13 @@ const VideoBackground = () => {
         Your browser does not support the video tag.
       </video>
       <Navbar/>
+
       <div className="content">
         <h1 className="is-size-1">Osaani Productions</h1>
         <h2 className="is-size-4">
           <Typewriter 
             words={['Design','Develop','Done']}
-            loop={5}
+            loop={0}
             cursor
             cursorStyle="_"
           />

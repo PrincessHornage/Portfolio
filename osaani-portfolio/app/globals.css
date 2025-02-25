@@ -45,15 +45,14 @@ a {
 .navbar-menu {
   background-color: transparent !important; /* Ensures dropdown menu is also transparent */
 }
-#navbarLinksCntr 
 
 .navbar {
-  position: absolute; /* Keeps navbar on top of other elements */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background-color: transparent !important; /* Ensures transparency */
-  z-index: 10; /* Ensures navbar is above the video */
+  z-index: 10; /* Ensures navbar stays above video */
 }
 
 .navbar-item {
@@ -83,12 +82,14 @@ a {
   z-index: -1; /* Ensures video stays behind everything */
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  padding-top: 20vh;
-}
 
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 5; /* Keeps content visible above the video */
+}
 
