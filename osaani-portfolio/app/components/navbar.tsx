@@ -1,13 +1,15 @@
 'use client';
 import React from 'react'
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faEnvelope, faLaptopCode, faCodeBranch} from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   return (
-    <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-spaced" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
             <Link className="navbar-item" href="/">
-                <figure className="image is-32x32">
+                <figure className="image is-48x48">
                     <img className='is-rounded' src='/game-console.png'/>
                 </figure>
             </Link>
@@ -21,10 +23,23 @@ const Navbar = () => {
         </div>
 
         <div id="navbarLinksCntr" className="navbar-menu">
-            <div className="navbar-start">
-                <Link className="navbar-item" href="/about">About</Link>
-                <Link className="navbar-item" href="/contact">Contact</Link>
-                <Link className="navbar-item" href="/projects">Projects</Link>
+            <div className="navbar-end is-size-4">
+                <Link className="navbar-item" href="/about">
+                    <FontAwesomeIcon icon={faUser} />
+                    <span>About</span>
+                </Link>
+                <Link className="navbar-item" href="/contact">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                    <span>Contact</span>
+                </Link>
+                <Link className="navbar-item" href="/projects">
+                    <FontAwesomeIcon icon={faLaptopCode} />
+                    <span>Projects</span>
+                </Link>
+                <Link className="navbar-item" href="https://github.com/PrincessHornage?tab=repositories">
+                    <FontAwesomeIcon icon={faCodeBranch} />
+                    <span>Github</span>
+                </Link>
             </div>
         </div>
     </nav>

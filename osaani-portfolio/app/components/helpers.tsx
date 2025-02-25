@@ -1,34 +1,29 @@
 "use client"; 
-import React, {useState, useEffect} from "react"; 
+import Navbar from "./navbar";
+import { Typewriter } from "react-simple-typewriter";
 
-const slideShowContent = ["programmer.png", "code.png", "done.png"];
-
-const PlaySlideShow = () => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % slideShowContent.length);
-      }, 4000); // Change slide every 2 seconds
-  
-      return () => clearInterval(interval); // Cleanup interval on unmount
-    }, []);
-
-
-    return (
-        <div id="slideshow-container">
-          {slideShowContent.map((src, index) => (
-            <div
-              key={index}
-              className={`slide ${index === currentIndex ? "active" : "hidden"}`}
-            >
-              <figure className="image">
-                <img src={src} alt={`Slide ${index + 1}`} />
-              </figure>
-            </div>
-          ))}
-        </div>
-      );
+const VideoBackground = () => {
+  return (
+    <div className="video-container">
+      <video autoPlay loop muted playsInline className="video-bg">
+        <source src="/homepage-bg-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <Navbar/>
+      <div className="content">
+        <h1 className="is-size-1">Osaani Productions</h1>
+        <h2 className="is-size-4">
+          <Typewriter 
+            words={['Design','Develop','Done']}
+            loop={5}
+            cursor
+            cursorStyle="_"
+          />
+        </h2>
+       
+      </div>
+    </div>
+  );
 }
 
-export default PlaySlideShow; 
+export default VideoBackground; 

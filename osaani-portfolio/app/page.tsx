@@ -1,23 +1,24 @@
 import React from 'react'
 import 'bulma/css/bulma.min.css';
 import Navbar from './components/navbar';
-import PlaySlideShow from './components/helpers';
-
+import VideoBackground from './components/helpers';
 
 //Variables 
   
 export default function Home() {
     return (
         <main>
-           <Navbar/>
-           <div className='container'>
-                <p className='title is-1 has-text-centered mt-6'>Osaani Productions</p>
-                <p className='subtitle is-3 has-text-centered'>Design, Develop, Done.</p>
-                
-                <PlaySlideShow/>
+        
+            <VideoBackground/>
+            <div className="container">
+                <section className="hero is-link">
+                    <div className="hero-body">
+                        <p className="title">Link hero</p>
+                        <p className="subtitle">Link subtitle</p>
+                    </div>
+                </section>
             </div>
+            
         </main>
     )
 }
-
-
