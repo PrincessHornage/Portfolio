@@ -82,8 +82,7 @@ a {
   z-index: -1; /* Ensures video stays behind everything */
 }
 
-
-.content {
+#titleText {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -91,5 +90,110 @@ a {
   text-align: center;
   color: white;
   z-index: 5; /* Keeps content visible above the video */
+}
+
+.hover-image-container {
+  width: 700px;
+  height: auto;
+  position: relative;
+}
+
+
+.hover-image-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Default image is visible */
+.hover-image-container img.default-img {
+  opacity: 1;
+}
+
+/* Middle image (shown on first hover) */
+.hover-image-container img.second-img {
+  opacity: 0;
+}
+
+/* Last image (shown on second hover) */
+.hover-image-container img.third-img {
+  opacity: 0;
+}
+
+/* Hover effects for transitions */
+.hover-image-container:hover img.default-img {
+  opacity: 0;
+}
+
+.hover-image-container:hover img.second-img {
+  opacity: 1;
+  transition-delay: 0.3s; /* Small delay for smooth transition */
+}
+
+.hover-image-container:hover:active img.second-img {
+  opacity: 0;
+}
+
+.hover-image-container:hover:active img.third-img {
+  opacity: 1;
+}
+
+
+.encrypt-button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem; /* Tailwind's rounded-lg */
+  border: 1px solid #6b7280; /* Tailwind's border-neutral-500 */
+  background-color: #374151; /* Tailwind's bg-neutral-700 */
+  padding: 0.5rem 1rem; /* Tailwind's px-4 py-2 */
+  font-family: monospace;
+  font-weight: 500; /* Tailwind's font-medium */
+  text-transform: uppercase;
+  color: #d1d5db; /* Tailwind's text-neutral-300 */
+  transition: color 0.3s ease-in-out;
+}
+
+.encrypt-button:hover {
+  color: #818cf8; /* Tailwind's hover:text-indigo-300 */
+}
+
+.encrypt-button-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+/* Animation span */
+.encrypt-button-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scale(1.25);
+  background: linear-gradient(
+    to top,
+    rgba(129, 140, 248, 0) 40%,
+    rgba(129, 140, 248, 1) 50%,
+    rgba(129, 140, 248, 0) 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.encrypt-button:hover .encrypt-button-glow {
+  opacity: 1;
+}
+
+/* Framer Motion hover effects */
+.encrypt-button:hover {
+  transform: scale(1.025);
+}
+
+.encrypt-button:active {
+  transform: scale(0.975);
 }
 

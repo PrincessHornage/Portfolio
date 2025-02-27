@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope, faLaptopCode, faCodeBranch} from '@fortawesome/free-solid-svg-icons';
 
-const Navbar = () => {
+export function Navbar() {
   return (
     <nav className="navbar is-spaced" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
@@ -46,4 +46,7 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+
+
+
+
