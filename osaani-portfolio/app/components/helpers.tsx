@@ -1,21 +1,19 @@
 "use client"; 
-//Imports 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Navbar } from "./navbar";
 import { Typewriter } from "react-simple-typewriter";
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faCss, faDartLang, faGithub, faGitlab, faHtml5, faJava, faJs, faLinkedin, faReact, faRust, faUnity, faVuejs } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Link from 'next/link';
-//Constants
-const TARGET_TEXT = "Learn More";
+import { faC, faHashtag, faPlus, faS, faUser, faV } from '@fortawesome/free-solid-svg-icons';
+
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 50;
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-//Interfaces
 interface VideoBackgroundProps {videoSrc: string;}
 interface EncryptBttnString {btnPhrase: string;}
 
@@ -95,7 +93,6 @@ export function VideoBackground({videoSrc}: VideoBackgroundProps) {
   </div>
   );
 }
-
 export function TypewriterTitle() {
   return(
     <div className="content"id='titleText'>
@@ -189,18 +186,16 @@ export function Footer() {
   );
 
 }
-
-
 //About Page 
 export function About() {
   return(
     <div className="content pt-6">
-      <h1 className="title has-text-centered pb-6">Check My Stats </h1>
-
       <section className="section">
+        <h1 className="title has-text-centered pb-6">Check My Stats </h1>
+
         <div className="columns">
-          <div className="column">
-            <p className='is-size-4'>
+          <div className="column is-flex is-justify-content-center is-align-items-center">
+            <p className='is-size-3'>
               I’m Princess-Osaani Hornage, a full-stack dev & game tech wizard, leveling up digital experiences with React.js, 
               blockchain apps, and interactive web design. Armed with a <strong>Game Design & Development</strong> degree from <strong>RIT</strong>, I craft sleek, 
               high-performance interfaces like a pro gamer mastering speedruns.
@@ -215,18 +210,13 @@ export function About() {
             </p>
           </div>
 
-          <div className="column">
+          <div className="column is-flex is-justify-content-center is-align-items-center">
             <figure className="image">
-              <img src="web-developer.png" alt="Full Stack Developer" />
+              <img src="web-developer.png" alt="Full Stack Developer" id='developerImg'/>
             </figure>
           </div>
+
         </div>
-      </section>
-
-      <section className='section is-medium'>
-        <h2 className="title has-text-centered">Skill Tree</h2>
-
-        <SkillTree/>
       </section>
     </div>
   ); 
@@ -234,9 +224,93 @@ export function About() {
 
 export function SkillTree() {
   return(
-    <p className="has-background-primary">
-      HI GUYS IM HER SKILL TREE
+    <div>
 
-    </p>
+      <section className="section">
+        <div className="container">
+          <div id="logoWheel">
+            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+          </div>
+        </div>
+      </section>
+
+
+      <section className='section'>
+        <hr/>
+        <h1 className="title has-text-centered">Skill Trees</h1>
+        <hr/>
+
+        <div className="container">
+          <h1 className="title has-text-centered pt-6">Programming Languages</h1>
+          <p className='content is-size-1'>
+            <div id="dblIconContainer">
+              <FontAwesomeIcon icon={faC}/>
+              <FontAwesomeIcon icon={faHashtag}/>
+            </div>
+            <br/>
+
+            <div id="dblIconContainer">
+              <FontAwesomeIcon icon={faC}/>
+              <FontAwesomeIcon icon={faPlus} />
+              <FontAwesomeIcon icon={faPlus} />
+            </div>
+            <br/>
+            <FontAwesomeIcon icon={faHtml5} />
+            <br/>
+            <FontAwesomeIcon icon={faCss} />
+            <br/>
+
+            <FontAwesomeIcon icon={faJava} />
+            <br/>
+
+            <FontAwesomeIcon icon={faJs} />
+            <br/>
+
+            <FontAwesomeIcon icon={faRust} />
+            <br/>
+
+            <FontAwesomeIcon icon={faDartLang} />
+            <br/>
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <h1 className="title has-text-centered">Tools & Technologies</h1>
+        <div className='container is-size-'>
+
+            <figure className="image" id='skillTreeImg'>
+              <img src="visual-studio.png" alt="Visual Studios" />
+            </figure>
+            <figure className="image" id='skillTreeImg'>
+              <img src="photoshop.png" alt="Adobe Photoshop" />
+            </figure>
+
+            <FontAwesomeIcon icon={faUnity}/>
+            <br/>
+
+            <FontAwesomeIcon icon={faGithub}/>
+            <br/>
+
+            <FontAwesomeIcon icon={faGitlab}/>
+            <br/>
+
+            <FontAwesomeIcon icon={faUnity}/>
+            <br/>
+
+            <FontAwesomeIcon icon={faReact}/>
+            <br/>
+
+            <FontAwesomeIcon icon={faVuejs}/>
+            <br/>
+        </div>
+      </section>
+
+   
+    </div>
   );
 }

@@ -101,6 +101,24 @@ a {
   z-index: 5; /* Keeps content visible above the video */
 }
 
+#developerImg{
+  width: 800px;
+  height: auto;
+}
+
+#skillTreeImg{ 
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover; 
+}
+
+#dblIconContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+ 
 
 .hover-image-container {
   width: 700px;
@@ -198,3 +216,57 @@ a {
   transform: scale(0.975);
 }
 
+/*Logo Wheel*/
+#logo-wheel {
+  position: relative;
+  width: 300px;  /* Size of the container */
+  height: 300px;
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;  /* Adjust for positioning */
+}
+
+/* Position logos in a circular path */
+#logo {
+  position: absolute;
+  font-size: 40px;  /* Size of the logo */
+  color: #ffffff;  /* Icon color */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rotateCircle 10s linear infinite;
+}
+
+/* Define the circular path animation */
+@keyframes rotateCircle {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+
+/* Adjusting each logo's starting position */
+#logo:nth-child(1) {
+  animation-delay: 0s;
+}
+#logo:nth-child(2) {
+  animation-delay: -1.5s;
+}
+#logo:nth-child(3) {
+  animation-delay: -3s;
+}
+#logo:nth-child(4) {
+  animation-delay: -4.5s;
+}
+#logo:nth-child(5) {
+  animation-delay: -6s;
+}
+#logo:nth-child(6) {
+  animation-delay: -7.5s;
+}
