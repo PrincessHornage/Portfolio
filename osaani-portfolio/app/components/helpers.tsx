@@ -9,25 +9,28 @@ import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Link from 'next/link';
-//Variables 
+//Constants
 const TARGET_TEXT = "Learn More";
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 50;
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
+//Interfaces
+interface VideoBackgroundProps {videoSrc: string;}
+interface EncryptBttnString {btnPhrase: string;}
 
-
-const EncryptButton = () => {
+//Creates encryption button styling effect
+const EncryptButton = ({btnPhrase} : EncryptBttnString) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
 
-  const [text, setText] = useState(TARGET_TEXT);
+  const [text, setText] = useState(btnPhrase);
 
   const scramble = () => {
     let pos = 0;
 
     intervalRef.current = setInterval(() => {
-      const scrambled = TARGET_TEXT.split("")
+      const scrambled = btnPhrase.split("")
         .map((char, index) => {
           if (pos / CYCLES_PER_LETTER > index) {
             return char;
@@ -43,7 +46,7 @@ const EncryptButton = () => {
       setText(scrambled);
       pos++;
 
-      if (pos >= TARGET_TEXT.length * CYCLES_PER_LETTER) {
+      if (pos >= btnPhrase.length * CYCLES_PER_LETTER) {
         stopScramble();
       }
     }, SHUFFLE_TIME);
@@ -52,7 +55,7 @@ const EncryptButton = () => {
   const stopScramble = () => {
     clearInterval(intervalRef.current || undefined);
 
-    setText(TARGET_TEXT);
+    setText(btnPhrase);
   };
 
   return (
@@ -80,16 +83,21 @@ const EncryptButton = () => {
 
   );
 };
-
-export function VideoBackground() {
+//Displays large background video over screen 
+export function VideoBackground({videoSrc}: VideoBackgroundProps) {
   return (
     <div className="video-container">
     <video autoPlay loop muted playsInline className="video-bg">
-      <source src="/homepage-bg-video.mp4" type="video/mp4" />
+      <source src={videoSrc} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <Navbar/>
+  </div>
+  );
+}
 
+export function TypewriterTitle() {
+  return(
     <div className="content"id='titleText'>
       <h1 className="is-size-1">Osaani Productions</h1>
       <h2 className="is-size-4">
@@ -101,10 +109,9 @@ export function VideoBackground() {
         />
       </h2>
     </div>
-
-  </div>
   );
 }
+//Content 
 export function Introduction() {
   return(
     <div className="columns content-container">
@@ -131,7 +138,7 @@ export function Introduction() {
               </p>
               <div className="encryptButton pt-6">
 
-                <Link href={'/about'}><EncryptButton /></Link>
+                <Link href={'/about'}><EncryptButton btnPhrase='LEARN MORE'/></Link>
                 
               </div>
               
@@ -152,19 +159,12 @@ export function Introduction() {
               alt='People watching TV'
               className='second-img'
             />
-
-            <img
-              src='/arts-and-crafts.jpg'
-              alt='People watching TV'
-              className='third-img'
-            />
           </figure>         
         </section>
       </div>
     </div>
   );
 }
-
 export function Footer() {
   return(
     <footer className="footer">
@@ -188,4 +188,55 @@ export function Footer() {
     </footer>
   );
 
+}
+
+
+//About Page 
+export function About() {
+  return(
+    <div className="content pt-6">
+      <h1 className="title has-text-centered pb-6">Check My Stats </h1>
+
+      <section className="section">
+        <div className="columns">
+          <div className="column">
+            <p className='is-size-4'>
+              I’m Princess-Osaani Hornage, a full-stack dev & game tech wizard, leveling up digital experiences with React.js, 
+              blockchain apps, and interactive web design. Armed with a <strong>Game Design & Development</strong> degree from <strong>RIT</strong>, I craft sleek, 
+              high-performance interfaces like a pro gamer mastering speedruns.
+              <br/>
+              <br/>
+              From building web apps to debugging game mechanics, I thrive on problem-solving and innovation. With awards and experience 
+              in teaching STEM, front and back-end design, and sales, I bring a mix of precision, creativity, and strategy to every project.
+
+              <br/>
+              <br/>
+              Let’s team up and create the next big thing!
+            </p>
+          </div>
+
+          <div className="column">
+            <figure className="image">
+              <img src="web-developer.png" alt="Full Stack Developer" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className='section is-medium'>
+        <h2 className="title has-text-centered">Skill Tree</h2>
+
+        <SkillTree/>
+      </section>
+    </div>
+  ); 
+}
+
+export function SkillTree() {
+  return(
+    <p className="has-background-primary">
+      HI GUYS IM HER SKILL TREE
+
+    </p>
+  );
 }

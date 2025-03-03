@@ -92,6 +92,16 @@ a {
   z-index: 5; /* Keeps content visible above the video */
 }
 
+#aboutContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5; /* Keeps content visible above the video */
+}
+
+
 .hover-image-container {
   width: 700px;
   height: auto;
@@ -118,11 +128,6 @@ a {
   opacity: 0;
 }
 
-/* Last image (shown on second hover) */
-.hover-image-container img.third-img {
-  opacity: 0;
-}
-
 /* Hover effects for transitions */
 .hover-image-container:hover img.default-img {
   opacity: 0;
@@ -135,10 +140,6 @@ a {
 
 .hover-image-container:hover:active img.second-img {
   opacity: 0;
-}
-
-.hover-image-container:hover:active img.third-img {
-  opacity: 1;
 }
 
 

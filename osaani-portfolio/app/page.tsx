@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bulma/css/bulma.min.css';
-import { VideoBackground } from './components/helpers';
+import { TypewriterTitle, VideoBackground } from './components/helpers';
 import { Introduction } from './components/helpers';
 import { Footer } from './components/helpers';
 
@@ -9,8 +9,13 @@ import { Footer } from './components/helpers';
 export default function Home() {
     return (
         <main>
-            <VideoBackground/>
-            <Introduction/>
+            <VideoBackground videoSrc="/homepage-bg-video.mp4" />
+            <TypewriterTitle/>
+
+            <div className="section">
+                <Introduction/>
+               
+            </div>
             <Footer/>
         </main>
     )
