@@ -192,7 +192,6 @@ export function About() {
     <div className="content pt-6">
       <section className="section">
         <h1 className="title has-text-centered pb-6">Check My Stats </h1>
-
         <div className="columns">
           <div className="column is-flex is-justify-content-center is-align-items-center">
             <p className='is-size-3'>
@@ -215,102 +214,69 @@ export function About() {
               <img src="web-developer.png" alt="Full Stack Developer" id='developerImg'/>
             </figure>
           </div>
-
         </div>
       </section>
     </div>
   ); 
 }
-
 export function SkillTree() {
   return(
     <div>
-
-      <section className="section">
-        <div className="container">
-          <div id="logoWheel">
-            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-            <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-          </div>
-        </div>
-      </section>
-
-
-      <section className='section'>
+      <section className='section mt-6'>
         <hr/>
         <h1 className="title has-text-centered">Skill Trees</h1>
         <hr/>
 
-        <div className="container">
-          <h1 className="title has-text-centered pt-6">Programming Languages</h1>
-          <p className='content is-size-1'>
-            <div id="dblIconContainer">
-              <FontAwesomeIcon icon={faC}/>
-              <FontAwesomeIcon icon={faHashtag}/>
+        <div className="container is-fluid" id='skill-tree-container'>
+          <div className="columns">
+            <div className="column is-flex is-justify-content-center is-align-content-center is-align-items-center is-align-self-center">
+            <h1 className="title">Programming Languages</h1>
+            <div id="circle-background"></div>
             </div>
-            <br/>
-
-            <div id="dblIconContainer">
-              <FontAwesomeIcon icon={faC}/>
-              <FontAwesomeIcon icon={faPlus} />
-              <FontAwesomeIcon icon={faPlus} />
+            <div className="column is-flex is-justify-content-center is-align-content-center is-align-items-center is-align-self-center">
+              <h1 className="title">Tools & Technology</h1>
+              <div id="circle-background"></div>
             </div>
-            <br/>
-            <FontAwesomeIcon icon={faHtml5} />
-            <br/>
-            <FontAwesomeIcon icon={faCss} />
-            <br/>
-
-            <FontAwesomeIcon icon={faJava} />
-            <br/>
-
-            <FontAwesomeIcon icon={faJs} />
-            <br/>
-
-            <FontAwesomeIcon icon={faRust} />
-            <br/>
-
-            <FontAwesomeIcon icon={faDartLang} />
-            <br/>
-          </p>
+          </div>
+          
+          
         </div>
       </section>
 
-      <section className="section">
-        <h1 className="title has-text-centered">Tools & Technologies</h1>
-        <div className='container is-size-'>
-
-            <figure className="image" id='skillTreeImg'>
-              <img src="visual-studio.png" alt="Visual Studios" />
-            </figure>
-            <figure className="image" id='skillTreeImg'>
-              <img src="photoshop.png" alt="Adobe Photoshop" />
-            </figure>
-
-            <FontAwesomeIcon icon={faUnity}/>
-            <br/>
-
-            <FontAwesomeIcon icon={faGithub}/>
-            <br/>
-
-            <FontAwesomeIcon icon={faGitlab}/>
-            <br/>
-
-            <FontAwesomeIcon icon={faUnity}/>
-            <br/>
-
-            <FontAwesomeIcon icon={faReact}/>
-            <br/>
-
-            <FontAwesomeIcon icon={faVuejs}/>
-            <br/>
-        </div>
-      </section>
-
-   
+      
     </div>
+  );
+}
+
+export function Etra() {
+  return(
+    <section className="section mt-6 pl-4">
+      <div className=" is-flex is-justify-content-center is-align-items-center mb-6 ">
+        <div id="logo-wheel">
+          <div id="logo">
+            <figure className="image">
+              <img src="c-sharp.png" alt="C#" />
+            </figure>
+          </div>
+          <div id="logo">
+            <figure className="image">
+              <img src="c-plus.png" alt="C#" />
+            </figure>
+          </div>
+          <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+          <div id="logo"><FontAwesomeIcon icon={faCss} /></div>
+          <div id="logo"><FontAwesomeIcon icon={faJava} /></div>
+          <div id="logo"><FontAwesomeIcon icon={faJs} /></div>
+          <div id="logo"><FontAwesomeIcon icon={faDartLang} /></div>
+          <div id="logo"><FontAwesomeIcon icon={faRust} /></div>
+        </div>
+
+        <div id="center-img">
+          <figure className="image is-128x128">
+            <img src="female-programmer.png" alt="Female Programmer on Laptop" />
+          </figure>
+        </div>
+      </div>
+    </section>
   );
 }

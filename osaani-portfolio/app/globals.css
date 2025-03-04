@@ -2,20 +2,17 @@
   --background: #ffffff;
   --foreground: #000000;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #00000000;
     --foreground: #ededed;
   }
 }
-
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
 }
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -23,29 +20,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
-
 /*Navbar*/
 .navbar-menu {
   background-color: transparent !important; /* Ensures dropdown menu is also transparent */
 }
-
 .navbar {
   position: absolute;
   top: 0;
@@ -54,15 +46,12 @@ a {
   background-color: transparent !important; /* Ensures transparency */
   z-index: 10; /* Ensures navbar stays above video */
 }
-
 .navbar-item {
   color: white !important; /* Makes text visible over video */
 }
-
 .navbar-burger span {
   background-color: white !important; /* Ensures burger menu lines are visible */
 }
-
 /*Background Video*/
 .video-container {
   position: relative;
@@ -70,7 +59,6 @@ a {
   height: 100vh;
   overflow: hidden;
 }
-
 .video-bg {
   position: absolute;
   top: 50%;
@@ -81,7 +69,6 @@ a {
   transform: translate(-50%, -50%);
   z-index: -1; /* Ensures video stays behind everything */
 }
-
 #titleText {
   position: absolute;
   top: 50%;
@@ -91,7 +78,6 @@ a {
   color: white;
   z-index: 5; /* Keeps content visible above the video */
 }
-
 #aboutContent {
   position: absolute;
   top: 50%;
@@ -100,33 +86,21 @@ a {
   text-align: center;
   z-index: 5; /* Keeps content visible above the video */
 }
-
 #developerImg{
   width: 800px;
   height: auto;
 }
-
 #skillTreeImg{ 
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover; 
 }
-
-#dblIconContainer {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
- 
-
 .hover-image-container {
   width: 700px;
   height: auto;
   position: relative;
 }
-
-
 .hover-image-container img {
   position: absolute;
   inset: 0;
@@ -135,32 +109,25 @@ a {
   object-fit: cover;
   transition: opacity 0.3s ease-in-out;
 }
-
 /* Default image is visible */
 .hover-image-container img.default-img {
   opacity: 1;
 }
-
 /* Middle image (shown on first hover) */
 .hover-image-container img.second-img {
   opacity: 0;
 }
-
 /* Hover effects for transitions */
 .hover-image-container:hover img.default-img {
   opacity: 0;
 }
-
 .hover-image-container:hover img.second-img {
   opacity: 1;
   transition-delay: 0.3s; /* Small delay for smooth transition */
 }
-
 .hover-image-container:hover:active img.second-img {
   opacity: 0;
 }
-
-
 .encrypt-button {
   position: relative;
   overflow: hidden;
@@ -174,11 +141,9 @@ a {
   color: #d1d5db; /* Tailwind's text-neutral-300 */
   transition: color 0.3s ease-in-out;
 }
-
 .encrypt-button:hover {
   color: #818cf8; /* Tailwind's hover:text-indigo-300 */
 }
-
 .encrypt-button-content {
   position: relative;
   display: flex;
@@ -186,7 +151,6 @@ a {
   gap: 0.5rem;
   z-index: 10;
 }
-
 /* Animation span */
 .encrypt-button-glow {
   position: absolute;
@@ -202,71 +166,109 @@ a {
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
-
 .encrypt-button:hover .encrypt-button-glow {
   opacity: 1;
 }
-
 /* Framer Motion hover effects */
 .encrypt-button:hover {
   transform: scale(1.025);
 }
-
 .encrypt-button:active {
   transform: scale(0.975);
 }
 
 /*Logo Wheel*/
-#logo-wheel {
-  position: relative;
-  width: 300px;  /* Size of the container */
-  height: 300px;
-  border-radius: 50%; /* Circular shape */
+#logo-wheel, #tools-logo-wheel {
+  position: absolute;
+  width: 200px; /* Adjust circle size */
+  height: 200px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px;  /* Adjust for positioning */
 }
 
+#logo-wheel{
+ 
+}
+#skill-tree-container{
+  height: 1700px;
+  margin-top: 80px;
+}
+#tools-logo-wheel{
+  bottom: 10px;
+  left: 10px;
+}
 /* Position logos in a circular path */
-#logo {
+#logo , #tools-logo{
   position: absolute;
-  font-size: 40px;  /* Size of the logo */
+  font-size: 60px;  /* Adjust icon size */
   color: #ffffff;  /* Icon color */
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   animation: rotateCircle 10s linear infinite;
 }
+#tools-logo .vsImg{
+  max-width: 80px;
+  height: auto;
+}
+#circle-background, #tool-circle-background{
+  position: absolute;
+  top: 100px;
+  width: 700px;
+  height: 700px;
+  border: 100px solid #35333372;  /* Color of the donut */
+  opacity: 40%;
+  border-radius: 50%;
+  background-color: transparent; /* Makes the center transparent */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Optional shadow for better effect */
+  opacity: 20%;
+}
+
+
+#center-img{
+  position: absolute;
+  top: 50%;
+  left: 46.5%;
+  display: none;
+}
+
 
 /* Define the circular path animation */
 @keyframes rotateCircle {
   0% {
-    transform: rotate(0deg) translateX(120px) rotate(0deg);
+    transform: rotate(0deg) translateX(300px) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+    transform: rotate(360deg) translateX(300px) rotate(-360deg);
+  }
+}
+@keyframes rotateToolsCircle {
+  0% {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
   }
 }
 
 /* Adjusting each logo's starting position */
-#logo:nth-child(1) {
-  animation-delay: 0s;
-}
-#logo:nth-child(2) {
-  animation-delay: -1.5s;
-}
-#logo:nth-child(3) {
-  animation-delay: -3s;
-}
-#logo:nth-child(4) {
-  animation-delay: -4.5s;
-}
-#logo:nth-child(5) {
-  animation-delay: -6s;
-}
-#logo:nth-child(6) {
-  animation-delay: -7.5s;
-}
+#logo:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); animation-delay: 0s; }
+#logo:nth-child(2) { transform: rotate(45deg) translate(300px) rotate(-45deg); animation-delay: -1.25s; }
+#logo:nth-child(3) { transform: rotate(90deg) translate(300px) rotate(-90deg); animation-delay: -2.5s; }
+#logo:nth-child(4) { transform: rotate(135deg) translate(300px) rotate(-135deg); animation-delay: -3.75s; }
+#logo:nth-child(5) { transform: rotate(180deg) translate(300px) rotate(-180deg); animation-delay: -5s; }
+#logo:nth-child(6) { transform: rotate(225deg) translate(300px) rotate(-225deg); animation-delay: -6.25s; }
+#logo:nth-child(7) { transform: rotate(270deg) translate(300px) rotate(-270deg); animation-delay: -7.5s; }
+#logo:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); animation-delay: -8.75s; }
+#tools-logo:nth-child(1) { transform: rotate(0deg) translate(150px) rotate(0deg); animation-delay: 0s; }
+#tools-logo:nth-child(2) { transform: rotate(60deg) translate(150px) rotate(-60deg); animation-delay: -0.9s; }
+#tools-logo:nth-child(3) { transform: rotate(120deg) translate(150px) rotate(-120deg); animation-delay: -2.5s; }
+#tools-logo:nth-child(4) { transform: rotate(180deg) translate(150px) rotate(-180deg); animation-delay: -4.3s; }
+#tools-logo:nth-child(5) { transform: rotate(240deg) translate(150px) rotate(-240deg); animation-delay: -5.9s; }
+#tools-logo:nth-child(6) { transform: rotate(300deg) translate(150px) rotate(-300deg); animation-delay: -7.7s; }
+
+
