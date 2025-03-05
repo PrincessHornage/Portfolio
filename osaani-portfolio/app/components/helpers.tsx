@@ -235,12 +235,12 @@ export function SkillTree() {
             <div className=" is-flex is-justify-content-center is-align-items-center mb-6 ">
               <div id="logo-wheel">
                 <div id="logo">
-                  <figure className="image">
+                  <figure className="image is-64x64">
                     <img src="c-sharp.png" alt="C#" />
                   </figure>
                 </div>
                 <div id="logo">
-                  <figure className="image">
+                  <figure className="image is-64x64">
                     <img src="c-plus.png" alt="C#" />
                   </figure>
                 </div>
@@ -261,24 +261,49 @@ export function SkillTree() {
             <div className="column is-flex is-justify-content-center is-align-content-center is-align-items-center is-align-self-center">
               <h1 className="title">Tools & Technology</h1>
               <div id="tool-circle-background"></div>
-              <div id="tool-logo-wheel">
-                <div id="logo">
-                  <figure className="image">
-                    <img src="c-sharp.png" alt="C#" />
-                  </figure>
+              <div className="is-flex is-justify-content-center is-align-items-center">
+                <div id="tool-logo-wheel">
+                  <div id="tools-logo">
+                    <figure className="image is-64x64">
+                      <img src="photoshop.png" alt="Adobe Photoshop" />
+                    </figure>
+                  </div>
+                  <div id="tools-logo">
+                    <figure className="image is-64x64">
+                      <img src="after-effects.png" alt="Adobe After Effects" />
+                    </figure>
+                  </div>
+                  <div id="tools-logo"><FontAwesomeIcon icon={faUnity} /></div>
+                  <div id="tools-logo"><FontAwesomeIcon icon={faGitlab} /></div>
+                  <div id="tools-logo"><FontAwesomeIcon icon={faGithub} /></div>
+                  <div id="tools-logo">
+                    <figure className="image is-64x64">
+                      <img src="visual-studio.png" alt="Visual Studios" />
+                    </figure>
+                  </div>
+                  <div id='tools-logo'>
+                    <figure>
+                      <img src="arcGIS-logo.png" alt="ArcGIS" />
+                    </figure>
+                  </div>
+                  <div id='tools-logo'>
+                    <figure className="image">
+                      <img src="axure-logo.png" alt="Axure" />
+                    </figure>
+                  </div>
+                  <div id='tools-logo'>
+                    <figure className="image">
+                      <img src="maya-logo.png" alt="Maya" />
+                    </figure>
+                  </div>
+                  <div id="center-img-2">
+                    <figure className="image is-128x128">
+                      <img src="tools-and-tech.png" alt="Eletronics" />
+                    </figure>
+                  </div>
                 </div>
-                <div id="logo">
-                  <figure className="image">
-                    <img src="c-plus.png" alt="C#" />
-                  </figure>
-                </div>
-                <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-                <div id="logo"><FontAwesomeIcon icon={faCss} /></div>
-                <div id="logo"><FontAwesomeIcon icon={faJava} /></div>
-                <div id="logo"><FontAwesomeIcon icon={faJs} /></div>
-                <div id="logo"><FontAwesomeIcon icon={faDartLang} /></div>
-                <div id="logo"><FontAwesomeIcon icon={faRust} /></div>
               </div>
+              
             </div>
           </div>
         </div>
