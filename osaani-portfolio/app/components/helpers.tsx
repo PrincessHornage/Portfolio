@@ -232,14 +232,55 @@ export function SkillTree() {
             <div className="column is-flex is-justify-content-center is-align-content-center is-align-items-center is-align-self-center">
             <h1 className="title">Programming Languages</h1>
             <div id="circle-background"></div>
+            <div className=" is-flex is-justify-content-center is-align-items-center mb-6 ">
+              <div id="logo-wheel">
+                <div id="logo">
+                  <figure className="image">
+                    <img src="c-sharp.png" alt="C#" />
+                  </figure>
+                </div>
+                <div id="logo">
+                  <figure className="image">
+                    <img src="c-plus.png" alt="C#" />
+                  </figure>
+                </div>
+                <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faCss} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faJava} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faJs} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faDartLang} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faRust} /></div>
+              </div>
+              <div id="center-img">
+                <figure className="image is-128x128">
+                  <img src="female-programmer.png" alt="Female Programmer on Laptop" />
+                </figure>
+              </div>
+            </div>
             </div>
             <div className="column is-flex is-justify-content-center is-align-content-center is-align-items-center is-align-self-center">
               <h1 className="title">Tools & Technology</h1>
-              <div id="circle-background"></div>
+              <div id="tool-circle-background"></div>
+              <div id="tool-logo-wheel">
+                <div id="logo">
+                  <figure className="image">
+                    <img src="c-sharp.png" alt="C#" />
+                  </figure>
+                </div>
+                <div id="logo">
+                  <figure className="image">
+                    <img src="c-plus.png" alt="C#" />
+                  </figure>
+                </div>
+                <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faCss} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faJava} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faJs} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faDartLang} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faRust} /></div>
+              </div>
             </div>
           </div>
-          
-          
         </div>
       </section>
 

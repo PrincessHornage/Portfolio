@@ -189,7 +189,8 @@ a {
 }
 
 #logo-wheel{
- 
+ top: 21%;
+ left: 21%;
 }
 #skill-tree-container{
   height: 1700px;
@@ -231,9 +232,8 @@ a {
 
 #center-img{
   position: absolute;
-  top: 50%;
-  left: 46.5%;
-  display: none;
+  top: 22%;
+  left: 23%;
 }
 
 
