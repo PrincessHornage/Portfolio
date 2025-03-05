@@ -280,13 +280,13 @@ a {
 #logo:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); animation-delay: -8.75s; }
 
 #tools-logo:nth-child(1) { transform: rotate(0deg) translate(150px) rotate(0deg); animation-delay: 0s; }
-#tools-logo:nth-child(2) { transform: rotate(40deg) translate(150px) rotate(-40deg); animation-delay: -0.8s; }
-#tools-logo:nth-child(3) { transform: rotate(80deg) translate(150px) rotate(-80deg); animation-delay: -1.6s; }
-#tools-logo:nth-child(4) { transform: rotate(120deg) translate(150px) rotate(-120deg); animation-delay: -2.4s; }
-#tools-logo:nth-child(5) { transform: rotate(160deg) translate(150px) rotate(-160deg); animation-delay: -3.2s; }
-#tools-logo:nth-child(6) { transform: rotate(200deg) translate(150px) rotate(-200deg); animation-delay: -4s; }
-#tools-logo:nth-child(7) { transform: rotate(240deg) translate(150px) rotate(-240deg); animation-delay: -4.8s; }
-#tools-logo:nth-child(8) { transform: rotate(280deg) translate(150px) rotate(-280deg); animation-delay: -5.6s; }
-#tools-logo:nth-child(9) { transform: rotate(320deg) translate(150px) rotate(-320deg); animation-delay: -6.4s; }
+#tools-logo:nth-child(2) { transform: rotate(40deg) translate(150px) rotate(-40deg); animation-delay: -1.11s; }
+#tools-logo:nth-child(3) { transform: rotate(80deg) translate(150px) rotate(-80deg); animation-delay: -2.22s; }
+#tools-logo:nth-child(4) { transform: rotate(120deg) translate(150px) rotate(-120deg); animation-delay: -3.33s; }
+#tools-logo:nth-child(5) { transform: rotate(160deg) translate(150px) rotate(-160deg); animation-delay: -4.44s; }
+#tools-logo:nth-child(6) { transform: rotate(200deg) translate(150px) rotate(-200deg); animation-delay: -5.55s; }
+#tools-logo:nth-child(7) { transform: rotate(240deg) translate(150px) rotate(-240deg); animation-delay: -6.66s; }
+#tools-logo:nth-child(8) { transform: rotate(280deg) translate(150px) rotate(-280deg); animation-delay: -7.77s; }
+#tools-logo:nth-child(9) { transform: rotate(320deg) translate(150px) rotate(-320deg); animation-delay: -8.88s; }
 
 
