@@ -176,7 +176,6 @@ a {
 .encrypt-button:active {
   transform: scale(0.975);
 }
-
 /*Logo Wheel*/
 #logo-wheel, #tool-logo-wheel {
   position: absolute;
@@ -187,18 +186,16 @@ a {
   justify-content: center;
   align-items: center;
 }
-
 #tool-logo-wheel{
-  top: 21%;
-  right: 21%;
+  top: 35%;
+  right: 21.2%;
 }
-
 #logo-wheel{
- top: 21%;
+ top: 35%;
  left: 21%;
 }
 #skill-tree-container{
-  height: 1700px;
+  height: 1000px;
   margin-top: 80px;
 }
 /* Position logos in a circular path */
@@ -207,55 +204,50 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: rotateCircle 10s linear infinite;
+  animation: rotateCircle 20s linear infinite;
 }
-
 #tools-logo{
   width: 400px;
   height: 400px;
 }
-
 #image-logo{
   width: 300px;
   height: auto;
   animation: rotateCircle 10s linear infinite; 
 }
-
 #resized-img-logo{
   width: 200px;
 }
-
 #logo , #tools-logo{
   font-size: 60px;  /* Adjust icon size */
   color: #ffffff;  /* Icon color */
 }
-
 #circle-background, #tool-circle-background{
   position: absolute;
   top: 100px;
   width: 700px;
   height: 700px;
-  border: 100px solid #35333372;  /* Color of the donut */
+  border: 110px solid #35333372;  /* Color of the donut */
   opacity: 40%;
   border-radius: 50%;
   background-color: transparent; /* Makes the center transparent */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Optional shadow for better effect */
   opacity: 20%;
 }
-#arcGIS-logo {
-  width: 100px; /* or any other value */
-  height: 100px;
-  
-}
 #center-img{
   position: absolute;
-  top: 22%;
+  top: 40%;
   left: 23%;
 }
 #center-img-2{
   position: absolute;
   top: 22%;
   right: 23%;
+}
+#pdfContainer{
+  max-height: 90vh;
+  max-width: 50vw;
+  overflow-y: auto;
 }
 
 
@@ -271,22 +263,26 @@ a {
 
 /* Adjusting each logo's starting position */
 #logo:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); animation-delay: 0s; }
-#logo:nth-child(2) { transform: rotate(45deg) translate(300px) rotate(-45deg); animation-delay: -1.25s; }
-#logo:nth-child(3) { transform: rotate(90deg) translate(300px) rotate(-90deg); animation-delay: -2.5s; }
-#logo:nth-child(4) { transform: rotate(135deg) translate(300px) rotate(-135deg); animation-delay: -3.75s; }
-#logo:nth-child(5) { transform: rotate(180deg) translate(300px) rotate(-180deg); animation-delay: -5s; }
-#logo:nth-child(6) { transform: rotate(225deg) translate(300px) rotate(-225deg); animation-delay: -6.25s; }
-#logo:nth-child(7) { transform: rotate(270deg) translate(300px) rotate(-270deg); animation-delay: -7.5s; }
-#logo:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); animation-delay: -8.75s; }
+#logo:nth-child(2) { transform: rotate(45deg) translate(300px) rotate(-45deg); animation-delay: -2.5s; }
+#logo:nth-child(3) { transform: rotate(90deg) translate(300px) rotate(-90deg); animation-delay: -5s; }
+#logo:nth-child(4) { transform: rotate(135deg) translate(300px) rotate(-135deg); animation-delay: -7.5s; }
+#logo:nth-child(5) { transform: rotate(180deg) translate(300px) rotate(-180deg); animation-delay: -10s; }
+#logo:nth-child(6) { transform: rotate(225deg) translate(300px) rotate(-225deg); animation-delay: -12.5s; }
+#logo:nth-child(7) { transform: rotate(270deg) translate(300px) rotate(-270deg); animation-delay: -15s; }
+#logo:nth-child(8) { transform: rotate(315deg) translate(300px) rotate(-315deg); animation-delay: -17.5s; }
+#logo:nth-child(9) { transform: rotate(315deg) translate(300px) rotate(-315deg); animation-delay: -17.5s; }
+#logo:nth-child(10) { transform: rotate(315deg) translate(300px) rotate(-315deg); animation-delay: -17.5s; }
 
+/* Adjusting each tools-logo's starting position */
 #tools-logo:nth-child(1) { transform: rotate(0deg) translate(150px) rotate(0deg); animation-delay: 0s; }
-#tools-logo:nth-child(2) { transform: rotate(40deg) translate(150px) rotate(-40deg); animation-delay: -1.11s; }
-#tools-logo:nth-child(3) { transform: rotate(80deg) translate(150px) rotate(-80deg); animation-delay: -2.22s; }
-#tools-logo:nth-child(4) { transform: rotate(120deg) translate(150px) rotate(-120deg); animation-delay: -3.33s; }
-#tools-logo:nth-child(5) { transform: rotate(160deg) translate(150px) rotate(-160deg); animation-delay: -4.44s; }
-#tools-logo:nth-child(6) { transform: rotate(200deg) translate(150px) rotate(-200deg); animation-delay: -5.55s; }
-#tools-logo:nth-child(7) { transform: rotate(240deg) translate(150px) rotate(-240deg); animation-delay: -6.66s; }
-#tools-logo:nth-child(8) { transform: rotate(280deg) translate(150px) rotate(-280deg); animation-delay: -7.77s; }
-#tools-logo:nth-child(9) { transform: rotate(320deg) translate(150px) rotate(-320deg); animation-delay: -8.88s; }
+#tools-logo:nth-child(2) { transform: rotate(40deg) translate(150px) rotate(-40deg); animation-delay: -2.22s; }
+#tools-logo:nth-child(3) { transform: rotate(80deg) translate(150px) rotate(-80deg); animation-delay: -4.44s; }
+#tools-logo:nth-child(4) { transform: rotate(120deg) translate(150px) rotate(-120deg); animation-delay: -6.66s; }
+#tools-logo:nth-child(5) { transform: rotate(160deg) translate(150px) rotate(-160deg); animation-delay: -8.88s; }
+#tools-logo:nth-child(6) { transform: rotate(200deg) translate(150px) rotate(-200deg); animation-delay: -11.1s; }
+#tools-logo:nth-child(7) { transform: rotate(240deg) translate(150px) rotate(-240deg); animation-delay: -13.32s; }
+#tools-logo:nth-child(8) { transform: rotate(280deg) translate(150px) rotate(-280deg); animation-delay: -15.54s; }
+#tools-logo:nth-child(9) { transform: rotate(320deg) translate(150px) rotate(-320deg); animation-delay: -17.76s; }
+
 
 

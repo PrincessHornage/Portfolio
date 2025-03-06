@@ -1,4 +1,8 @@
 "use client"; 
+import React from 'react';
+import dynamic from 'next/dynamic';
+import "@react-pdf-viewer/core/lib/styles/index.css";
+import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Navbar } from "./navbar";
 import { Typewriter } from "react-simple-typewriter";
@@ -8,15 +12,22 @@ import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Link from 'next/link';
-import { faC, faHashtag, faPlus, faS, faUser, faV } from '@fortawesome/free-solid-svg-icons';
-
-const CYCLES_PER_LETTER = 3;
-const SHUFFLE_TIME = 50;
-const CHARS = "!@#$%^&*():{};|,.<>/?";
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
 
 interface VideoBackgroundProps {videoSrc: string;}
 interface EncryptBttnString {btnPhrase: string;}
 
+const CYCLES_PER_LETTER = 3;
+const SHUFFLE_TIME = 50;
+const CHARS = "!@#$%^&*():{};|,.<>/?";
+const Worker = dynamic(
+  () => import("@react-pdf-viewer/core").then((mod) => mod.Worker),
+  { ssr: false }
+);
+const Viewer = dynamic(
+  () => import("@react-pdf-viewer/core").then((mod) => mod.Viewer),
+  { ssr: false }
+);
 //Creates encryption button styling effect
 const EncryptButton = ({btnPhrase} : EncryptBttnString) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -81,6 +92,8 @@ const EncryptButton = ({btnPhrase} : EncryptBttnString) => {
 
   );
 };
+
+
 //Displays large background video over screen 
 export function VideoBackground({videoSrc}: VideoBackgroundProps) {
   return (
@@ -236,7 +249,7 @@ export function SkillTree() {
               <div id="logo-wheel">
                 <div id="logo">
                   <figure className="image is-64x64">
-                    <img src="c-sharp.png" alt="C#" />
+                    <img src="c-sharp.png" alt="C#"/>
                   </figure>
                 </div>
                 <div id="logo">
@@ -249,6 +262,8 @@ export function SkillTree() {
                 <div id="logo"><FontAwesomeIcon icon={faJava} /></div>
                 <div id="logo"><FontAwesomeIcon icon={faJs} /></div>
                 <div id="logo"><FontAwesomeIcon icon={faDartLang} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faReact} /></div>
+                <div id="logo"><FontAwesomeIcon icon={faVuejs} /></div>
                 <div id="logo"><FontAwesomeIcon icon={faRust} /></div>
               </div>
               <div id="center-img">
@@ -282,7 +297,7 @@ export function SkillTree() {
                     </figure>
                   </div>
                   <div id='tools-logo'>
-                    <figure>
+                    <figure className='image is-128x128'>
                       <img src="arcGIS-logo.png" alt="ArcGIS" />
                     </figure>
                   </div>
@@ -307,42 +322,30 @@ export function SkillTree() {
             </div>
           </div>
         </div>
+      <hr/>
       </section>
-
-      
     </div>
   );
 }
-
-export function Etra() {
+export function Resume() {
   return(
-    <section className="section mt-6 pl-4">
-      <div className=" is-flex is-justify-content-center is-align-items-center mb-6 ">
-        <div id="logo-wheel">
-          <div id="logo">
-            <figure className="image">
-              <img src="c-sharp.png" alt="C#" />
-            </figure>
-          </div>
-          <div id="logo">
-            <figure className="image">
-              <img src="c-plus.png" alt="C#" />
-            </figure>
-          </div>
-          <div id="logo"><FontAwesomeIcon icon={faHtml5} /></div>
-          <div id="logo"><FontAwesomeIcon icon={faCss} /></div>
-          <div id="logo"><FontAwesomeIcon icon={faJava} /></div>
-          <div id="logo"><FontAwesomeIcon icon={faJs} /></div>
-          <div id="logo"><FontAwesomeIcon icon={faDartLang} /></div>
-          <div id="logo"><FontAwesomeIcon icon={faRust} /></div>
-        </div>
-
-        <div id="center-img">
-          <figure className="image is-128x128">
-            <img src="female-programmer.png" alt="Female Programmer on Laptop" />
-          </figure>
-        </div>
+     <section className="section">
+      <h1 className="title has-text-centered">Resume</h1>
+      <div id="pdfContainer" className='container'>
+        <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`} />
+        <Viewer 
+        fileUrl="/Resume.pdf" 
+        defaultScale={2.0}
+        />
       </div>
+      <div className="buttons is-flex is-justify-content-center mt-6" id="resumeButtons">
+          <button className="button is-large is-rounded has-text-centered" >
+            <span className="icon-text">
+              <span className="icon"><FontAwesomeIcon icon={faDownload} /></span>
+              <span>Download Resume</span>              
+            </span>
+            </button>
+        </div>
     </section>
-  );
+  )
 }
