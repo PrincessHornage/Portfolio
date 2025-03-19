@@ -335,7 +335,7 @@ export function Resume() {
         <Worker workerUrl={`https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.worker.min.js`} />
         <Viewer 
         fileUrl="/Resume.pdf" 
-        defaultScale={2.0}
+        defaultScale={1.5}
         />
       </div>
       <div className="buttons is-flex is-justify-content-center mt-6" id="resumeButtons">
@@ -347,5 +347,25 @@ export function Resume() {
             </button>
         </div>
     </section>
+  )
+}
+
+//Projects Page
+export function Projects(){
+  return(
+    <div className="section">
+      <h1 className="title has-text-centered">Projects</h1>
+      <h3 className="subtitle has-text-centered">Take a look at the fruits of my labor</h3>
+      <div id="project-preview-container">
+        <figure className="image" id='project-preview-img'>
+          <img src="laptop.png" alt="Laptop" />
+        </figure>
+      </div>
+      <div id="project-preview-container">
+        <figure className="image" id='project-preview-img'>
+          <img src="laptop.png" alt="Laptop" />
+        </figure>
+      </div>
+    </div>
   )
 }
