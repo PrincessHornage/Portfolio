@@ -270,42 +270,25 @@ a {
   height: 100%;
   object-fit: fill;
 }
-
 #iPhone-container{
   width: 50%;
   height: auto;
   margin-left: 20%;
 }
-
 #iPhone-img{
   position: relative;
   z-index: 10;
 }
-
 #design-to-spec-container{
   width: 36.5%;
   height: 74%;
   position: absolute;
   top: 13%;
   left: 32%; 
-
 }
-
 #iPhone-img-preview{
   border-radius: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 /* Define the circular path animation */
 @keyframes rotateCircle {
   0% {
@@ -315,8 +298,6 @@ a {
     transform: rotate(360deg) translateX(300px) rotate(-360deg);
   }
 }
-
-/* Adjusting each logo's starting position */
 /* Adjusting each logo's starting position */
 #logo:nth-child(1) { transform: rotate(0deg) translate(300px) rotate(0deg); animation-delay: 0s; }
 #logo:nth-child(2) { transform: rotate(36deg) translate(300px) rotate(-36deg); animation-delay: -2s; }
@@ -328,10 +309,6 @@ a {
 #logo:nth-child(8) { transform: rotate(252deg) translate(300px) rotate(-252deg); animation-delay: -14s; }
 #logo:nth-child(9) { transform: rotate(288deg) translate(300px) rotate(-288deg); animation-delay: -16s; }
 #logo:nth-child(10) { transform: rotate(324deg) translate(300px) rotate(-324deg); animation-delay: -18s; }
-
-
-
-/* Adjusting each tools-logo's starting position */
 #tools-logo:nth-child(1) { transform: rotate(0deg) translate(150px) rotate(0deg); animation-delay: 0s; }
 #tools-logo:nth-child(2) { transform: rotate(40deg) translate(150px) rotate(-40deg); animation-delay: -2.22s; }
 #tools-logo:nth-child(3) { transform: rotate(80deg) translate(150px) rotate(-80deg); animation-delay: -4.44s; }
