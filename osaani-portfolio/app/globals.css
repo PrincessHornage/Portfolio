@@ -273,7 +273,8 @@ a {
 #iPhone-container{
   width: 50%;
   height: auto;
-  margin-left: 20%;
+  
+
 }
 #iPhone-img{
   position: relative;
@@ -287,8 +288,9 @@ a {
   left: 32%; 
 }
 #iPhone-img-preview{
-  border-radius: 25px;
+  border-radius: 27px;
 }
+
 /* Define the circular path animation */
 @keyframes rotateCircle {
   0% {

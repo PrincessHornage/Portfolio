@@ -12,11 +12,12 @@ import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Link from 'next/link';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import { FiBatteryCharging, FiWifi } from "react-icons/fi";
 
 interface VideoBackgroundProps {videoSrc: string;}
 interface EncryptBttnString {btnPhrase: string;}
+interface ProjectButtonsURL {btnURL: string}
 
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 50;
@@ -355,34 +356,38 @@ export function Resume() {
 export function Projects(){
   return(
     <div className="section">
-      <h1 className="title has-text-centered">Projects</h1>
-      <h3 className="subtitle has-text-centered">Take a look at the fruits of my labor</h3>
+      <h1 className="title has-text-centered">Quests and Creations</h1>
+      <h3 className="subtitle has-text-centered">From code to controller—play my work</h3>
       <div className='columns'>
-        <div className="column">
-          {/*Anime Radar*/}
-          <figure className="image" id='laptop-container'>
-            <img src="laptop.png" alt="Laptop" id='laptop-img'/>
-            <figure className="image" id='anime-radar-container'>
-              <img src="anime.jpg" alt="" id='img-preview'/>
+        <div className="column is-flex is-flex-direction-column is-align-items-center">
+          {/* Anime Radar */}
+          <figure className="image" id="laptop-container">
+            <img src="laptop.png" alt="Laptop" id="laptop-img" />
+            <figure className="image" id="anime-radar-container">
+              <img src="anime.jpg" alt="Anime Radar preview" id="img-preview" />
             </figure>
           </figure>
-
-          {/*Dodge or Die*/}
-          <figure className="image" id='laptop-container'>
-            <img src="laptop.png" alt="Laptop" id='laptop-img'/>
-            <figure className="image" id='anime-radar-container'>
-              <img src="dodge-or-die.jpg" alt="" id='img-preview'/>
+          <ProjectButtons/>
+         
+          {/* Dodge or Die */}
+          <figure className="image" id="laptop-container">
+            <img src="laptop.png" alt="Laptop" id="laptop-img" />
+            <figure className="image" id="anime-radar-container">
+              <img src="dodge-or-die.jpg" alt="Dodge or Die preview" id="img-preview" />
             </figure>
           </figure>
+          <ProjectButtons/>
         </div>
-        <div className="column">
+
+        <div className="column is-flex is-flex-direction-column is-align-items-center">
           {/*Feeding Fido*/}
-            <figure className="image" id='laptop-container'>
+          <figure className="image" id='laptop-container'>
             <img src="laptop.png" alt="Laptop" id='laptop-img'/>
             <figure className="image" id='anime-radar-container'>
-              <img src="anime.jpg" alt="" id='img-preview'/>
+              <img src="shiba-inu.jpg" alt="" id='img-preview'/>
             </figure>
           </figure>
+          <ProjectButtons/>
 
           {/*Design to Spec*/}
           <figure className="image" id='iPhone-container'>
@@ -391,14 +396,34 @@ export function Projects(){
               <img  src="design-to-spec.png" alt="Design to Spec preview" id="iPhone-img-preview" />
             </figure>
           </figure>
-
-         
-
-        
+          <ProjectButtons/>
         </div>
       </div>
-
-     
     </div>
   )
+}
+
+export function ProjectButtons(){
+  return(
+    <div className="buttons is-flex is-justify-content-center">
+      
+      <button className="button is-rounded is-medium" >
+        <span>Demo</span>
+        <span className="icon is-small">
+          <FontAwesomeIcon icon={faLaptopCode} />
+        </span>
+      </button>
+
+      <Link className="navbar-item" href="https://github.com/PrincessHornage?tab=repositories">
+        <button className="button is-rounded is-medium">
+          <span>GitHub</span>
+          <span className="icon is-small">
+            <FontAwesomeIcon icon={faGithub} />
+          </span>
+        </button>
+      </Link>
+      
+    </div>
+  );
+
 }
