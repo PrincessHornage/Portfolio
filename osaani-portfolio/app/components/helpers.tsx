@@ -13,6 +13,7 @@ import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FiBatteryCharging, FiWifi } from "react-icons/fi";
 
 interface VideoBackgroundProps {videoSrc: string;}
 interface EncryptBttnString {btnPhrase: string;}
@@ -357,32 +358,47 @@ export function Projects(){
       <h1 className="title has-text-centered">Projects</h1>
       <h3 className="subtitle has-text-centered">Take a look at the fruits of my labor</h3>
       <div className='columns'>
-        <div className="column has-background-danger">
+        <div className="column">
           {/*Anime Radar*/}
           <figure className="image" id='laptop-container'>
             <img src="laptop.png" alt="Laptop" id='laptop-img'/>
             <figure className="image" id='anime-radar-container'>
-              <img src="anime.jpg" alt="" id='anime-radar-img'/>
+              <img src="anime.jpg" alt="" id='img-preview'/>
             </figure>
           </figure>
 
           {/*Dodge or Die*/}
           <figure className="image" id='laptop-container'>
-            <img src="laptop.png" alt="Laptop" />
+            <img src="laptop.png" alt="Laptop" id='laptop-img'/>
+            <figure className="image" id='anime-radar-container'>
+              <img src="dodge-or-die.jpg" alt="" id='img-preview'/>
+            </figure>
           </figure>
         </div>
-        <div className="column has-background-primary">
-          {/*Design to Spec*/}
-          <figure className="image" id='laptop-container'>
-            <img src="laptop.png" alt="Laptop" />
+        <div className="column">
+          {/*Feeding Fido*/}
+            <figure className="image" id='laptop-container'>
+            <img src="laptop.png" alt="Laptop" id='laptop-img'/>
+            <figure className="image" id='anime-radar-container'>
+              <img src="anime.jpg" alt="" id='img-preview'/>
+            </figure>
           </figure>
 
-          {/*Feeding Fido*/}
-          <figure className="image" id='laptop-container'>
-            <img src="laptop.png" alt="Laptop" />
+          {/*Design to Spec*/}
+          <figure className="image" id='iPhone-container'>
+            <img src="iPhone.png" alt="iPhone" id="iPhone-img" />
+            <figure className="image" id='design-to-spec-container'>
+              <img  src="design-to-spec.png" alt="Design to Spec preview" id="iPhone-img-preview" />
+            </figure>
           </figure>
+
+         
+
+        
         </div>
       </div>
+
+     
     </div>
   )
 }
