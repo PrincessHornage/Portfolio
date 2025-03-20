@@ -356,15 +356,32 @@ export function Projects(){
     <div className="section">
       <h1 className="title has-text-centered">Projects</h1>
       <h3 className="subtitle has-text-centered">Take a look at the fruits of my labor</h3>
-      <div id="project-preview-container">
-        <figure className="image" id='project-preview-img'>
-          <img src="laptop.png" alt="Laptop" />
-        </figure>
-      </div>
-      <div id="project-preview-container">
-        <figure className="image" id='project-preview-img'>
-          <img src="laptop.png" alt="Laptop" />
-        </figure>
+      <div className='columns'>
+        <div className="column has-background-danger">
+          {/*Anime Radar*/}
+          <figure className="image" id='laptop-container'>
+            <img src="laptop.png" alt="Laptop" id='laptop-img'/>
+            <figure className="image" id='anime-radar-container'>
+              <img src="anime.jpg" alt="" id='anime-radar-img'/>
+            </figure>
+          </figure>
+
+          {/*Dodge or Die*/}
+          <figure className="image" id='laptop-container'>
+            <img src="laptop.png" alt="Laptop" />
+          </figure>
+        </div>
+        <div className="column has-background-primary">
+          {/*Design to Spec*/}
+          <figure className="image" id='laptop-container'>
+            <img src="laptop.png" alt="Laptop" />
+          </figure>
+
+          {/*Feeding Fido*/}
+          <figure className="image" id='laptop-container'>
+            <img src="laptop.png" alt="Laptop" />
+          </figure>
+        </div>
       </div>
     </div>
   )

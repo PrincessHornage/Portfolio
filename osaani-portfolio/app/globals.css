@@ -249,10 +249,31 @@ a {
   max-width: 50vw;
   overflow-y: auto;
 }
-#project-preview-img{
-  width: 100vh;
+#laptop-container{
+  width: 80vh;
   height: auto;
 }
+
+#laptop-img{
+  z-index: 5;
+  position: relative;
+}
+
+#anime-radar-container{
+  width: 20vw;
+  height: 13vw;
+  position: absolute;
+  top: 17%;
+  left: 23.5%;
+  z-index: 1;
+}
+#anime-radar-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 
 
 
