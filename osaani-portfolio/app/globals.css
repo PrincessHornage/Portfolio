@@ -273,8 +273,7 @@ a {
 #iPhone-container{
   width: 50%;
   height: auto;
-  
-
+  margin-left: 25%;
 }
 #iPhone-img{
   position: relative;
