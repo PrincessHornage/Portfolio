@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --background: #ffffff;
   --foreground: #000000;
@@ -271,15 +273,11 @@ a {
 
 }
 #iPhone-img{
-  position: relative;
   z-index: 10;
 }
 #design-to-spec-container{
   width: 36.5%;
   height: 74%;
-  position: absolute;
-  top: 13%;
-  left: 32%; 
 }
 #iPhone-img-preview{
   border-radius: 27px;
@@ -316,6 +314,27 @@ a {
 #tools-logo:nth-child(9) { transform: rotate(320deg) translate(150px) rotate(-320deg); animation-delay: -17.76s; }
 
 /*Media Queries*/
+/*Mobile (S)*/
+@media screen and (max-width: 768px){
+  #iPhone-img-preview{
+    border-radius: 29px;
+  }
+}
+
+@media screen and (min-width:1024px) {
+  #iPhone-img, #iPhone-img-preview {
+    transform: rotate(90deg);
+  } 
+  
+}
+
+/*Mobile (M)*/
 /*Mobile (L)*/
-/* Tablet (L) */
+/*Tablet (S)*/
+/*Tablet (M)*/
+/*Tablet (L)*/
+/*Laptop (S)*/
+/*Laptop (M)*/
+/*Laptop (L)*/
+/*WideScreens*/
 

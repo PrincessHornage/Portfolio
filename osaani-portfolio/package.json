@@ -17,6 +17,8 @@
     "@react-pdf-viewer/core": "^3.12.0",
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "@react-pdf/renderer": "^4.3.0",
+    "@tailwindcss/cli": "^4.0.15",
+    "@tailwindcss/postcss": "^4.0.15",
     "bulma": "^1.0.3",
     "framer-motion": "^12.4.7",
     "next": "15.1.6",
@@ -32,8 +34,11 @@
     "@types/pdf-viewer-reactjs": "^2.2.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.15",
     "typescript": "^5"
   }
 }

@@ -8,16 +8,18 @@ import { Navbar } from "./navbar";
 import { Typewriter } from "react-simple-typewriter";
 import { faCss, faDartLang, faGithub, faGitlab, faHtml5, faJava, faJs, faLinkedin, faReact, faRust, faUnity, faVuejs } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, Dispatch, SetStateAction } from "react";
 import { FiLock } from "react-icons/fi";
-import { motion } from "framer-motion";
 import Link from 'next/link';
-import { faDownload, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
-import { FiBatteryCharging, FiWifi } from "react-icons/fi";
+import { faDownload, faLaptopCode, faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
+import { ResizeBtns } from './utils/utlis.js'; 
+import { motion } from "framer-motion";
+import { } from "react";
 
 const CYCLES_PER_LETTER = 3;
 const SHUFFLE_TIME = 50;
 const CHARS = "!@#$%^&*():{};|,.<>/?";
+
 const Worker = dynamic(
   () => import("@react-pdf-viewer/core").then((mod) => mod.Worker),
   { ssr: false }
@@ -26,6 +28,60 @@ const Viewer = dynamic(
   () => import("@react-pdf-viewer/core").then((mod) => mod.Viewer),
   { ssr: false }
 );
+
+//Slider
+const TOGGLE_CLASSES =
+  "text-sm font-medium flex items-center gap-2 px-3 md:pl-3 md:pr-3.5 py-3 md:py-1.5 transition-colors relative z-10";
+
+type ToggleOptionsType = "mobile" | "web";
+
+
+const SliderToggle = ({
+  selected,
+  setSelected,
+}: {
+  selected: ToggleOptionsType;
+  setSelected: Dispatch<SetStateAction<ToggleOptionsType>>;
+}) => {
+  return (
+    <div className="relative flex w-fit items-center rounded-full">
+      <button
+        className={`${TOGGLE_CLASSES} ${
+          selected === "mobile" ? "text-white" : "text-slate-300"
+        }`}
+        onClick={() => {
+          setSelected("mobile");
+        }}
+      >
+        <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faPhoneSquare} />
+        <span className="relative z-10">Mobile</span>
+      </button>
+      <button
+        className={`${TOGGLE_CLASSES} ${
+          selected === "web" ? "text-white" : "text-slate-800"
+        }`}
+        onClick={() => {
+          setSelected("web");
+        }}
+      >
+        <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faLaptopCode} />
+        <span className="relative z-10">Web</span>
+      </button>
+      <div
+        className={`absolute inset-0 z-0 flex ${
+          selected === "web" ? "justify-end" : "justify-start"
+        }`}
+      >
+        <motion.span
+          layout
+          transition={{ type: "spring", damping: 15, stiffness: 250 }}
+          className="h-full w-1/2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600"
+        />
+      </div>
+    </div>
+  );
+};
+
 //Creates encryption button styling effect
 const EncryptButton = ({btnPhrase} : {btnPhrase: string;}) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -344,10 +400,40 @@ export function Resume() {
   )
 }
 export function Projects(){
+  useEffect(() => {
+    // Run ResizeBtns function when the component is mounted
+    ResizeBtns();
+
+    // Add event listener to resize the buttons on window resize
+    const handleResize = () => {
+      ResizeBtns();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  const [selected, setSelected] = useState<ToggleOptionsType>("mobile");
+  
   return(
     <div className="section">
       <h1 className="title has-text-centered">Quests and Creations</h1>
       <h3 className="subtitle has-text-centered">From code to controller—play my work</h3>
+      
+      <div
+        className="grid h-[200px] place-content-center px-4"
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <SliderToggle selected={selected} setSelected={setSelected} />
+      </div>
+
       <div className='columns'>
         <div className="column is-flex is-flex-direction-column is-align-items-center">
           {/* Anime Radar */}
@@ -369,7 +455,6 @@ export function Projects(){
             description={''}          
           />
         </div>
-
         <div className="column is-flex is-flex-direction-column is-align-items-center">
           {/*Feeding Fido*/}
           <WebProjectPreview 
@@ -381,11 +466,13 @@ export function Projects(){
             description={''}          />
 
           {/*Design to Spec*/}
-          <MobileProjectPreview 
-            imageURL={'design-to-spec.png'} 
-            altText={'Minecraft Webpage'} 
-            demoURL={''} 
-            gitHubURL={''}          
+          <WebProjectPreview 
+            imageURL={'shiba-inu.jpg'}
+            altText={'Shiba Inu holding a bone'}
+            demoURL={''}
+            gitHubURL={'https://github.com/PrincessHornage/JS-Projects/tree/main/Feeding%20Fido'} 
+            title={''} 
+            description={''}
           />
         </div>
       </div>
@@ -396,10 +483,10 @@ export function Projects(){
 //Webpage preview component for web-based projects 
 export function WebProjectPreview(
   {imageURL, altText, demoURL, gitHubURL, title, description}: {imageURL:string, altText: string, demoURL: string, gitHubURL: string, title: string, description: string}
-){
+){ 
   return(
     <div>
-      <figure className='image has-background-danger'>
+      <figure className='image'>
         <img src="laptop.png" alt="Laptop" id="laptop-img" />
         <figure className="image has-background-primary" id="anime-radar-container">
           <img src={imageURL} alt={altText} id="img-preview" />
@@ -408,7 +495,7 @@ export function WebProjectPreview(
 
       <div className="buttons is-flex is-justify-content-center">
         <Link href={demoURL}>
-          <button className="button is-rounded is-medium" >
+          <button className="button is-rounded is-medium" id='project-btn'>
             <span>Demo</span>
             <span className="icon is-small">
               <FontAwesomeIcon icon={faLaptopCode} />
@@ -417,7 +504,7 @@ export function WebProjectPreview(
         </Link>
         
         <Link href={gitHubURL}>
-          <button className="button is-rounded is-medium">
+          <button className="button is-rounded is-medium" id='project-btn'>
             <span>GitHub</span>
             <span className="icon is-small">
               <FontAwesomeIcon icon={faGithub} />
@@ -427,7 +514,6 @@ export function WebProjectPreview(
       </div>
     </div>
   );
-   
 }
 //Mobile preview component for mobile-based projects
 export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL}:{imageURL:string, altText: string, demoURL: string, gitHubURL: string}){
@@ -442,7 +528,7 @@ export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL}:{im
 
       <div className="buttons is-flex is-justify-content-center">
         <Link href={demoURL}>
-          <button className="button is-rounded is-medium" >
+          <button className="button is-rounded is-medium" id='project-btn'>
             <span>Demo</span>
             <span className="icon is-small">
               <FontAwesomeIcon icon={faLaptopCode} />
@@ -451,7 +537,7 @@ export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL}:{im
         </Link>
         
         <Link href={gitHubURL}>
-          <button className="button is-rounded is-medium">
+          <button className="button is-rounded is-medium" id='project-btn'>
             <span>GitHub</span>
             <span className="icon is-small">
               <FontAwesomeIcon icon={faGithub} />
