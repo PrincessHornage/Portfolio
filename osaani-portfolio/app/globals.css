@@ -249,17 +249,13 @@ a {
   max-width: 50vw;
   overflow-y: auto;
 }
-#laptop-container{
-  width: 90vh;
-  height: auto;
-}
 #laptop-img{
   z-index: 5;
   position: relative;
 }
 #anime-radar-container{
-  width: 22.5vw;
-  height: 15vw;
+  width: 53%;
+  height: 61%;
   position: absolute;
   top: 17%;
   left: 23.5%;
@@ -270,10 +266,9 @@ a {
   height: 100%;
   object-fit: fill;
 }
-#iPhone-container{
-  width: 50%;
-  height: auto;
-  margin-left: 25%;
+#anime-radar-container:hover {
+  visibility: hidden;
+
 }
 #iPhone-img{
   position: relative;
@@ -320,4 +315,7 @@ a {
 #tools-logo:nth-child(8) { transform: rotate(280deg) translate(150px) rotate(-280deg); animation-delay: -15.54s; }
 #tools-logo:nth-child(9) { transform: rotate(320deg) translate(150px) rotate(-320deg); animation-delay: -17.76s; }
 
+/*Media Queries*/
+/*Mobile (L)*/
+/* Tablet (L) */
 

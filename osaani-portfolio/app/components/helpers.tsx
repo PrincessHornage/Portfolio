@@ -399,9 +399,9 @@ export function WebProjectPreview(
 ){
   return(
     <div>
-      <figure className="image" id="laptop-container">
+      <figure className='image has-background-danger'>
         <img src="laptop.png" alt="Laptop" id="laptop-img" />
-        <figure className="image" id="anime-radar-container">
+        <figure className="image has-background-primary" id="anime-radar-container">
           <img src={imageURL} alt={altText} id="img-preview" />
         </figure>
       </figure>
@@ -433,7 +433,7 @@ export function WebProjectPreview(
 export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL}:{imageURL:string, altText: string, demoURL: string, gitHubURL: string}){
   return(
     <div>
-      <figure className="image" id='iPhone-container'>
+      <figure className="image">
         <img src="iPhone.png" alt="iPhone" id="iPhone-img" />
         <figure className="image" id='design-to-spec-container'>
           <img  src={imageURL} alt={altText} id="iPhone-img-preview" />
