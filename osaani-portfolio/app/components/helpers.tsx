@@ -3,7 +3,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "@react-pdf-viewer/default-layout/lib/styles/index.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Navbar } from "./navbar";
 import { Typewriter } from "react-simple-typewriter";
 import { faCss, faDartLang, faGithub, faGitlab, faHtml5, faJava, faJs, faLinkedin, faReact, faRust, faUnity, faVuejs } from '@fortawesome/free-brands-svg-icons';
@@ -13,6 +13,7 @@ import { FiLock } from "react-icons/fi";
 import Link from 'next/link';
 import { faDownload, faLaptopCode, faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
 import { ResizeBtns } from './utils/utlis.js'; 
+import { ShowSelectedProjs } from './utils/utlis.js';
 import { motion } from "framer-motion";
 import { } from "react";
 
@@ -43,30 +44,29 @@ const SliderToggle = ({
   selected: ToggleOptionsType;
   setSelected: Dispatch<SetStateAction<ToggleOptionsType>>;
 }) => {
+  ShowSelectedProjs(); 
   return (
     <div className="relative flex w-fit items-center rounded-full">
       <button
-        className={`${TOGGLE_CLASSES} ${
-          selected === "mobile" ? "text-white" : "text-slate-300"
-        }`}
-        onClick={() => {
-          setSelected("mobile");
-        }}
+        data-type="web"
+        data-selected={selected === "web"}
+        className={`${TOGGLE_CLASSES} ${selected === "web" ? "text-white" : "text-slate-300"}`}
+        onClick={() => setSelected("web")}
       >
         <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faPhoneSquare} />
-        <span className="relative z-10">Mobile</span>
+        <span className="relative z-10">Web Apps</span>
       </button>
+
       <button
-        className={`${TOGGLE_CLASSES} ${
-          selected === "web" ? "text-white" : "text-slate-800"
-        }`}
-        onClick={() => {
-          setSelected("web");
-        }}
+        data-type="mobile"
+        data-selected={selected === "mobile"}
+        className={`${TOGGLE_CLASSES} ${selected === "mobile" ? "text-white" : "text-slate-800"}`}
+        onClick={() => setSelected("mobile")}
       >
         <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faLaptopCode} />
-        <span className="relative z-10">Web</span>
+        <span className="relative z-10">Mobile</span>
       </button>
+
       <div
         className={`absolute inset-0 z-0 flex ${
           selected === "web" ? "justify-end" : "justify-start"
@@ -85,7 +85,6 @@ const SliderToggle = ({
 //Creates encryption button styling effect
 const EncryptButton = ({btnPhrase} : {btnPhrase: string;}) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
 
   const [text, setText] = useState(btnPhrase);
 
@@ -423,14 +422,7 @@ export function Projects(){
       <h1 className="title has-text-centered">Quests and Creations</h1>
       <h3 className="subtitle has-text-centered">From code to controller—play my work</h3>
       
-      <div
-        className="grid h-[200px] place-content-center px-4"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="grid h-fit-content place-content-center px-4 is-flex is-justify-content-center is-align-items-center">
         <SliderToggle selected={selected} setSelected={setSelected} />
       </div>
 
@@ -479,13 +471,12 @@ export function Projects(){
     </div>
   )
 }
-
 //Webpage preview component for web-based projects 
 export function WebProjectPreview(
   {imageURL, altText, demoURL, gitHubURL, title, description}: {imageURL:string, altText: string, demoURL: string, gitHubURL: string, title: string, description: string}
 ){ 
   return(
-    <div>
+    <div id='web-project'>
       <figure className='image'>
         <img src="laptop.png" alt="Laptop" id="laptop-img" />
         <figure className="image has-background-primary" id="anime-radar-container">
