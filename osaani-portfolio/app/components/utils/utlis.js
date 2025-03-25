@@ -1,4 +1,3 @@
-import { type } from "os";
 
 //Adds/Removes bulma classes to change size of project buttons 
 export function ResizeBtns() {
@@ -20,30 +19,30 @@ export function ResizeBtns() {
         }
     });
 }
-
 //Displays associating projects based on button toggle 
 export function ShowSelectedProjs() {
     //Gets the selected button 
     let projectType = document.querySelector("button[data-selected='true']"); 
     let webProjects = document.querySelectorAll('#web-project'); 
     let mobileProjects = document.querySelectorAll('#mobile-project'); 
+    let threeDProjects = document.querySelectorAll('#three-D-project')
 
     //Loops through the web projects to hide them from view 
     if(projectType){
-        if(projectType.innerText.includes("Web")){//Web
-            webProjects.forEach((project) => {
-                project.classList.remove("is-hidden"); 
-            });
-            mobileProjects.forEach((project) => {
-                project.classList.add("is-hidden");
-            }); 
-        }else if(projectType.innerText.includes("Mobile")){//Mobile
-            webProjects.forEach((project) => {
-                project.classList.add("is-hidden"); 
-            });
-            mobileProjects.forEach((project) => {
-                project.classList.remove("is-hidden");
-            }); 
+        if(projectType?.dataset.type === "mobile"){//Mobile
+            mobileProjects.forEach((project) => project.classList.remove("is-hidden")); 
+            webProjects.forEach((project) => project.classList.add("is-hidden")); 
+            threeDProjects.forEach((project) => project.classList.add("is-hidden"));
+
+        }else if(projectType?.dataset.type === "web"){
+            webProjects.forEach((project) =>  project.classList.remove("is-hidden"));
+            mobileProjects.forEach((project) => project.classList.add("is-hidden"));
+            threeDProjects.forEach((project) => project.classList.add("is-hidden"));
+
+        }else if(projectType?.dataset.type === "animation"){
+            webProjects.forEach((project) => project.classList.add("is-hidden")); 
+            mobileProjects.forEach((project) => project.classList.add("is-hidden"));
+            threeDProjects.forEach((project) => project.classList.remove("is-hidden"));
         }
     }
 }

@@ -268,19 +268,56 @@ a {
   height: 100%;
   object-fit: fill;
 }
-#anime-radar-container:hover {
-  visibility: hidden;
-
+#iPhone-img {
+  position: relative;
+  z-index: 1;
 }
-#iPhone-img{
-  z-index: 10;
-}
-#design-to-spec-container{
-  width: 36.5%;
+#design-to-spec-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the content */
+  width: 36.5%; /* Adjust to fit inside iPhone */
   height: 74%;
+  text-align: center;
+  pointer-events: auto;
+  
+}
+#mobile-title-text {
+  position: absolute;
+  top: 35%; /* Adjust placement inside the iPhone */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  width: 90%;
+  text-align: center;
+  z-index: 20; /* Ensures text appears above */
+}
+#mobile-description-text {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  width: 350px;
+  font-size: 2vh;
 }
 #iPhone-img-preview{
-  border-radius: 27px;
+  border-radius: 10%;
+}
+#mobile-title-text{
+  position: absolute;
+  bottom: 100%; /* Adjust placement inside the iPhone */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  width: 90%;
+  text-align: center;
+  z-index: 20; /* Ensures text appears above */
+}
+
+#iPhone-img:hover ~ #mobile-title-text {
+  display: none;
 }
 
 /* Define the circular path animation */
@@ -316,16 +353,9 @@ a {
 /*Media Queries*/
 /*Mobile (S)*/
 @media screen and (max-width: 768px){
-  #iPhone-img-preview{
-    border-radius: 29px;
-  }
 }
 
 @media screen and (min-width:1024px) {
-  #iPhone-img, #iPhone-img-preview {
-    transform: rotate(90deg);
-  } 
-  
 }
 
 /*Mobile (M)*/

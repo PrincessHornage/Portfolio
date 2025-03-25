@@ -6,12 +6,12 @@ import "@react-pdf-viewer/default-layout/lib/styles/index.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Navbar } from "./navbar";
 import { Typewriter } from "react-simple-typewriter";
-import { faCss, faDartLang, faGithub, faGitlab, faHtml5, faJava, faJs, faLinkedin, faReact, faRust, faUnity, faVuejs } from '@fortawesome/free-brands-svg-icons';
+import { faCss, faDartLang, faGithub,  faGitlab, faHtml5, faJava, faJs, faLinkedin, faReact, faRust, faUnity, faVuejs } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
 import { useRef, useState, useEffect, Dispatch, SetStateAction } from "react";
 import { FiLock } from "react-icons/fi";
 import Link from 'next/link';
-import { faDownload, faLaptopCode, faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCube, faDownload, faLaptopCode, faPhoneSquare } from '@fortawesome/free-solid-svg-icons';
 import { ResizeBtns } from './utils/utlis.js'; 
 import { ShowSelectedProjs } from './utils/utlis.js';
 import { motion } from "framer-motion";
@@ -33,10 +33,10 @@ const Viewer = dynamic(
 //Slider
 const TOGGLE_CLASSES =
   "text-sm font-medium flex items-center gap-2 px-3 md:pl-3 md:pr-3.5 py-3 md:py-1.5 transition-colors relative z-10";
+type ToggleOptionsType = "mobile" | "web" | "animation";
 
-type ToggleOptionsType = "mobile" | "web";
 
-
+//React Components - by Hover.Dev 
 const SliderToggle = ({
   selected,
   setSelected,
@@ -44,7 +44,11 @@ const SliderToggle = ({
   selected: ToggleOptionsType;
   setSelected: Dispatch<SetStateAction<ToggleOptionsType>>;
 }) => {
-  ShowSelectedProjs(); 
+
+  useEffect(() => {
+    ShowSelectedProjs();
+  }, [selected]);
+
   return (
     <div className="relative flex w-fit items-center rounded-full">
       <button
@@ -53,7 +57,7 @@ const SliderToggle = ({
         className={`${TOGGLE_CLASSES} ${selected === "web" ? "text-white" : "text-slate-300"}`}
         onClick={() => setSelected("web")}
       >
-        <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faPhoneSquare} />
+        <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faLaptopCode} />
         <span className="relative z-10">Web Apps</span>
       </button>
 
@@ -63,25 +67,32 @@ const SliderToggle = ({
         className={`${TOGGLE_CLASSES} ${selected === "mobile" ? "text-white" : "text-slate-800"}`}
         onClick={() => setSelected("mobile")}
       >
-        <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faLaptopCode} />
+        <FontAwesomeIcon className="relative z-10 text-lg md:text-sm" icon={faPhoneSquare} />
         <span className="relative z-10">Mobile</span>
       </button>
 
-      <div
-        className={`absolute inset-0 z-0 flex ${
-          selected === "web" ? "justify-end" : "justify-start"
-        }`}
+      <button
+        data-type="animation"
+        data-selected={selected === "animation"}
+        className={`${TOGGLE_CLASSES} ${selected === "animation" ? "text-white" : "text-slate-300"}`}
+        onClick={() => setSelected("animation")}
       >
+        <span className="relative z-10">3D Animation</span>
+      </button>
+ 
+      <div className="absolute inset-0 z-0 flex">
         <motion.span
           layout
           transition={{ type: "spring", damping: 15, stiffness: 250 }}
-          className="h-full w-1/2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600"
+          className="h-full w-1/3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600"
+          animate={{
+            x: selected === "web" ? "0%" : selected === "mobile" ? "100%" : "200%" ,
+          }}
         />
       </div>
     </div>
   );
 };
-
 //Creates encryption button styling effect
 const EncryptButton = ({btnPhrase} : {btnPhrase: string;}) => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -143,6 +154,73 @@ const EncryptButton = ({btnPhrase} : {btnPhrase: string;}) => {
       />
     </motion.button>
 
+  );
+};
+//Creates Bubble Text Effect 
+const BubbleText = ({textPhrase} : {textPhrase: string}) => {
+  useEffect(() => {
+    const spans = document.querySelectorAll(
+      ".hover-text span"
+    ) as NodeListOf<HTMLSpanElement>;
+
+    spans.forEach((span) => {
+      span.addEventListener("mouseenter", function (this: typeof span) {
+        this.style.fontWeight = "900";
+        this.style.color = "rgb(238, 242, 255)";
+
+        const leftNeighbor = this.previousElementSibling as HTMLSpanElement;
+        const rightNeighbor = this.nextElementSibling as HTMLSpanElement;
+
+        if (leftNeighbor) {
+          leftNeighbor.style.fontWeight = "500";
+          leftNeighbor.style.color = "rgb(199, 210, 254)";
+        }
+        if (rightNeighbor) {
+          rightNeighbor.style.fontWeight = "500";
+          rightNeighbor.style.color = "rgb(199, 210, 254)";
+        }
+      });
+
+      span.addEventListener("mouseleave", function (this: typeof span) {
+        this.style.fontWeight = "100";
+        this.style.color = "rgb(165, 180, 252)";
+
+        const leftNeighbor = this.previousElementSibling as HTMLSpanElement;
+        const rightNeighbor = this.nextElementSibling as HTMLSpanElement;
+
+        if (leftNeighbor) {
+          leftNeighbor.style.fontWeight = "100";
+          leftNeighbor.style.color = "rgb(165, 180, 252)";
+        }
+
+        if (rightNeighbor) {
+          rightNeighbor.style.fontWeight = "100";
+          rightNeighbor.style.color = "rgb(165, 180, 252)";
+        }
+      });
+    });
+  }, []);
+
+  return (
+    <h2 className="hover-text text-center text-5xl font-thin text-indigo-300">
+      <Text>{textPhrase}</Text>
+    </h2>
+  );
+};
+const Text = ({ children }: { children: string }) => {
+  return (
+    <>
+      {children.split("").map((child, idx) => (
+        <span
+          style={{
+            transition: "0.35s font-weight, 0.35s color",
+          }}
+          key={idx}
+        >
+          {child}
+        </span>
+      ))}
+    </>
   );
 };
 //Displays large background video over screen 
@@ -446,7 +524,15 @@ export function Projects(){
             title={''} 
             description={''}          
           />
-        </div>
+          <MobileProjectPreview 
+            imageURL={'design-to-spec.png'} 
+            altText={'Minecraft Website Mockup Homepage'} 
+            demoURL={''} gitHubURL={''} 
+            title={'Design to Spec'} 
+            descripton={'A Dart-based project where I reconstructed an app based on images provided'}
+          />
+            
+          </div>
         <div className="column is-flex is-flex-direction-column is-align-items-center">
           {/*Feeding Fido*/}
           <WebProjectPreview 
@@ -466,6 +552,15 @@ export function Projects(){
             title={''} 
             description={''}
           />
+
+          <MobileProjectPreview 
+          imageURL={'design-to-spec.png'} 
+          altText={'Minecraft Website Mockup Homepage'} 
+          demoURL={''} 
+          gitHubURL={''} 
+          title={'GIF Finder'} 
+          descripton={'A Dart-based app that allows users to search and view GIFS'}/>
+
         </div>
       </div>
     </div>
@@ -507,15 +602,20 @@ export function WebProjectPreview(
   );
 }
 //Mobile preview component for mobile-based projects
-export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL}:{imageURL:string, altText: string, demoURL: string, gitHubURL: string}){
+export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL, title, descripton}:{imageURL:string, altText: string, demoURL: string, gitHubURL: string, title: string, descripton: string}){
   return(
-    <div>
-      <figure className="image">
+    <div id='mobile-project'>
+      <figure className="image" id='iPhone-container'>
         <img src="iPhone.png" alt="iPhone" id="iPhone-img" />
-        <figure className="image" id='design-to-spec-container'>
-          <img  src={imageURL} alt={altText} id="iPhone-img-preview" />
+        <figure className="image" id="design-to-spec-container">
+          <img src={imageURL} alt={altText} id="iPhone-img-preview" />
         </figure>
+        <span id="mobile-title-text">
+          <BubbleText textPhrase={title} />
+        </span>
+        <span id="mobile-description-text">{descripton}</span>
       </figure>
+
 
       <div className="buttons is-flex is-justify-content-center">
         <Link href={demoURL}>
