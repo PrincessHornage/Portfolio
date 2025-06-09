@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+      
+        <title>Learning Game Platform</title>
+      
+        <style>
+      
+          body { font-family: Arial; text-align: center; background: #f0f8ff; }
+      
+          h1 { margin-top: 20px; }
+      
+          select, button { padding: 10px; font-size: 16px; margin: 10px; }
+      
+          #gameArea { margin-top: 30px; }
+      
+          .platforms { display: flex; justify-content: center; gap: 50px; margin-top: 40px; }
+      
+          .platform {
+      
+            width: 100px; height: 60px; background: #4fc3f7;
+      
+            display: flex; align-items: center; justify-content: center;
+      
+            font-size: 20px; border-radius: 10px;
+      
+            cursor: pointer;
+      
+          }
+      
+          #message { margin-top: 30px; font-size: 20px; height: 30px; }
+      
+          #score { font-size: 18px; margin-top: 10px; }
+      
+        </style>
+      
+    </head>
+
+    <body>
+        <h1>🎓 Learn & Play Game Platform</h1>
+        <div>
+          <label>Grade:
+            <select id="grade">
+              <option value="3">3rd</option>
+              <option value="4">4th</option>
+              <option value="5">5th</option>
+              <option value="6">6th</option>
+              <option value="7">7th</option>
+              <option value="8">8th</option>
+              <option value="9">9th</option>
+              <option value="10">10th</option>
+              <option value="11">11th</option>
+              <option value="12">12th</option>
+            </select>
+          </label>
+      
+          <label>Subject:
+            <select id="subject">
+              <option value="math">Math</option>
+              <option value="ela">ELA</option>
+              <option value="science">Science</option>
+              <option value="social">Social Studies</option>
+            </select>
+          </label>
+      
+          <button onclick="startGame()">Start Game</button>
+        </div>
+      
+        <div id="gameArea" style="display:none">
+            <div id="question"></div>
+            <div class="platforms">
+                <div class="platform" id="left"></div>
+                <div class="platform" id="middle"></div>
+                <div class="platform" id="right"></div>
+            </div>
+            <div id="message"></div>
+            <div id="score">Score: 0</div>
+       </div>
+        <script>
+          let correctAnswer = 0;
+          let score = 0;
+          let nounList = ["bird","dog","Bill","William","Mr.Smith","Six Flags","Brooklyn Public Library","Computer Lab","book","soda can","chair"]; 
+          let fakeNouns = ["quickly","run","jump","walk","pretty","ugly","clumsy","open","close","sit","pretend","flustered"]; 
+          let planetList = ["Mars", "Mercury","Earth","Venus","Jupiter","Neptune","Uranus"];
+          let notPlanetList = ["Moon","Milky Way","Big Dipper", "Little Dipper", "Ursa Major", "Ursa Minor", "Orion's Belt", "Sirus", "Sirus B"]; 
+          let altPlanetNames = ["Swift Planet", "Morning/Evening Star", "Blue Planet", "Red Planet", "Giant Planet","Ringed Planet","Ice Giant", "Big Blue Planet"];
+          let presidentNamesList = [
+            "Abe Lincoln", "John Adams", "Thomas Jefferson", "James Madison","James Monroe",
+            "John Quincy Adams","Andrew Jackson","Martin Van Buren","William Henry Harrison","John Tyler"
+          ];
+          let fakeNamesList = ["Bill Brown", "Adam Sandler", "Phil Evans", "William Pharrel", "Katy Perry", "Idris Alba", "Selena Gomez", "Justin Bieber", "Jonah Hill", "Rob Lowe"];
+          let orderList = ["first", "second", "third", "fourth","fifth","sixth","seventh","eighth","ninth", "tenth"]; 
+          function getRandomInt(min, max) {return Math.floor(Math.random() * (max - min + 1)) + min;}
+          function getRndOption(list){return list[Math.floor(Math.random() * list.length)]}; 
+          function generateQuestion(grade, subject) {
+               let q = '', a = 0, txtAns = '';
+               
+               if (subject === 'math') {
+                  let num1 = getRandomInt(grade, grade * 2);
+                
+                  let num2 = getRandomInt(1, grade);
+                
+                  a = num1 * num2;
+                
+                  q = `What is ${num1} × ${num2}?`;
+                
+                } else if (subject === 'science') {
+                 let nickName = getRndOption(altPlanetNames)
+                 q = `Which planet is known as the ${nickName}?`;
+                 if(nickName === "Red Planet"){
+                    a = "Mars";
+                  }else if(nickName === "Swift Planet"){
+                   a = "Mercury";
+                  }else if(nickName === "Morning/Evening Star"){
+                    a = "Venus";
+                  }else if(nickName === "Blue Planet"){
+                   a = "Earth";
+                  }else if(nickName === "Giant Planet"){
+                    a = "Jupiter";
+                  }else if(nickName === "Ringed Planet"){
+                   a = "Saturn";
+                  }else if(nickName === "Ice Giant"){
+                    a = "Uranus";
+                  }else if(nickName === "Big Blue Planet"){
+                   a = "Neptune";
+                  }
+               } else if (subject === 'ela') {
+               
+                 //Calls methods to fill q and a 
+                 let noun = getRndOption(nounList); 
+                 /*Suggest changing the question to prevent need to randomize question order 
+                    Ex: Which word is a noun (cat, run, fly)? 
+
+                    Would need to randomize order to prevent players from guessing vs
+                    simply removing that part now that all the options are clearly visible
+                  */
+                  q = 'Which word is a noun?'; 
+                
+                  a = noun;
+                
+                } else if (subject === 'social') {
+                  let place = getRndOption(orderList);
+                  switch(place){
+                    case "first": 
+                      a = presidentNamesList[0]; 
+                    break; 
+                    case "second":
+                      a = presidentNamesList[1];
+                    break; 
+                    case "third":
+                      a = presidentNamesList[2];
+                    break; 
+                    case "fourth":
+                      a = presidentNamesList[3];
+                    break; 
+                    case "fifth":
+                      a = presidentNamesList[4];
+                    break; 
+                    case "sixth":
+                      a = presidentNamesList[5];
+                    break; 
+                    case "seventh":
+                      a = presidentNamesList[6];
+                    break; 
+                    case "eighth":
+                      a = presidentNamesList[7];
+                    break; 
+                    case "ninth":
+                      a = presidentNamesList[8];
+                    break;
+                    case "tenth":
+                      a = presidentNamesList[9];
+                    break; 
+                  }
+                  q = `Who was the ${place} President of the United States?`;
+                }
+      
+            document.getElementById('question').textContent = q;
+            correctAnswer = a;
+            let options = [a];
+      
+            while (options.length < 3) {
+              let fake = '';
+              //Math conditions
+
+              switch(subject){
+                case 'math': 
+                  fake =  getRandomInt(1, a + 10);
+                break; 
+                case 'ela':
+                  fake = getRndOption(fakeNouns);
+                break; 
+                case 'science':
+                  fake = grade <= 5 ? getRndOption(notPlanetList) : getRndOption(planetList);
+                break; 
+                case 'social':
+                  if(grade <= 5 ){
+                    fake = getRndOption(fakeNamesList); 
+                  }else if (grade < 9) {
+                    fake = getRndOption(presidentNamesList);
+                  } else {
+                    fake = getRndOption(presidentNamesList);
+                  }
+                break; 
+              }
+              if (!options.includes(fake)) options.push(fake);
+            }
+      
+            options.sort(() => Math.random() - 0.5);
+            document.getElementById('left').textContent = options[0];
+            document.getElementById('middle').textContent = options[1];
+            document.getElementById('right').textContent = options[2];
+          }
+            function checkAnswer(answer) {
+      
+             const message = document.getElementById('message');
+      
+             if (answer == correctAnswer) {
+      
+               message.textContent = '✅ Correct!';
+      
+               score++;
+      
+             } else {
+               message.textContent = '❌ Try Again!';
+      
+               score--;
+             }
+      
+             document.getElementById('score').textContent = `Score: ${score}`;
+      
+             setTimeout(() => {
+      
+               message.textContent = '';
+      
+               const grade = parseInt(document.getElementById('grade').value);
+      
+               const subject = document.getElementById('subject').value;
+      
+               generateQuestion(grade, subject);
+      
+             }, 1000);
+      
+            }
+      
+          function startGame() {
+      
+            score = 0;
+      
+            document.getElementById('score').textContent = 'Score: 0';
+      
+            document.getElementById('gameArea').style.display = 'block';
+      
+            const grade = parseInt(document.getElementById('grade').value);
+      
+            const subject = document.getElementById('subject').value;
+      
+            generateQuestion(grade, subject);
+      
+          }
+      
+          document.getElementById('left').onclick = () => checkAnswer(document.getElementById('left').textContent);
+          document.getElementById('middle').onclick = () => checkAnswer(document.getElementById('middle').textContent);
+          document.getElementById('right').onclick = () => checkAnswer(document.getElementById('right').textContent);
+          
+      
+        </script>
+      
+      </body>
+</html>

@@ -35,7 +35,6 @@ const TOGGLE_CLASSES =
   "text-sm font-medium flex items-center gap-2 px-3 md:pl-3 md:pr-3.5 py-3 md:py-1.5 transition-colors relative z-10";
 type ToggleOptionsType = "mobile" | "web" | "animation";
 
-
 //React Components - by Hover.Dev 
 const SliderToggle = ({
   selected,
@@ -610,12 +609,11 @@ export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL, tit
         <figure className="image" id="design-to-spec-container">
           <img src={imageURL} alt={altText} id="iPhone-img-preview" />
         </figure>
-        <span id="mobile-title-text">
+        <span id="mobile-title-text" className='has-background-primary'>
           <BubbleText textPhrase={title} />
         </span>
-        <span id="mobile-description-text">{descripton}</span>
+        <span id="mobile-description-text" className='has-background-primary has-text-white p-4'>{descripton}</span>
       </figure>
-
 
       <div className="buttons is-flex is-justify-content-center">
         <Link href={demoURL}>
@@ -626,7 +624,6 @@ export function MobileProjectPreview({imageURL, altText, demoURL, gitHubURL, tit
             </span>
           </button>
         </Link>
-        
         <Link href={gitHubURL}>
           <button className="button is-rounded is-medium" id='project-btn'>
             <span>GitHub</span>

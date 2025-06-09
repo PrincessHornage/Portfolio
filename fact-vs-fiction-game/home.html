@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Fact v/s Fiction</title>
+</head>
+<body>
+
+    <h1>Fact v/s Fiction</h1>
+    <p id="instructions">
+        Think you've got what it takes to disginguish fiction from reality? Test your
+        skills in this timed fast-pace guessing game. How many can you get right before
+        the time is up? Correct answers reward you with extra time, but beware! guessing
+        incorrectly shaves your time off. 
+    </p>
+
+    <!--Add API call to action-->
+    <form action="">
+        <p>Select A Category</p>
+        <input type="radio" id="video-games" name="category" value="Entertainment: Video Games">
+        <label for="video-games">Video Games</label><br>
+        
+        <input type="radio" id="anime-and-manga" name="category" value="Entertainment: Japanese Anime & Manga">
+        <label for="anime-and-manga">Anime/Manga</label><br>
+       
+        <input type="radio" id="music" name="category" value="Entertainment: Music">
+        <label for="music">Music</label><br>
+
+        <input type="radio" id="film" name="category" value="Entertainment: Film">
+        <label for="film">Film</label><br>
+
+        <p>Select a Difficulty Level</p>
+        <input type="radio" id="easy" name="difficulty" value="Easy">
+        <label for="video-games">Easy</label><br>
+        
+        <input type="radio" id="medium" name="difficulty" value="Medium">
+        <label for="anime-and-manga">Medium</label><br>
+       
+        <input type="radio" id="hard" name="difficulty" value="Hard">
+        <label for="music">Hard</label><br>
+
+        
+        <button id="category-submit-btn">Submit</button>
+    </form>
+
+    <br>
+    <button id="close-instructions-btn" onclick="hideInstructions()">Close</button>
+    <button id="start-game-btn" onclick="startGame()">Start Game</button>
+    <div id="score">Score: </div>
+    <div id="question"></div>
+    <button id="true-btn">True</button><button id="false-btn">False</button>
+    <div id="answer"></div>  
+    <div class="time"></div>  
+    <div id="game-over-screen"></div>
+
+    <script src="src.js"></script>
+    <script src="api.js"></script>
+</body>
+</html>

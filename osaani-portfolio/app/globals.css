@@ -201,7 +201,7 @@ a {
   margin-top: 80px;
 }
 /* Position logos in a circular path */
-#logo , #tools-logo, #image-logo{
+#logo, #tools-logo, #image-logo{
   position: absolute;
   display: flex;
   justify-content: center;
@@ -220,7 +220,7 @@ a {
 #resized-img-logo{
   width: 200px;
 }
-#logo , #tools-logo{
+#logo, #tools-logo{
   font-size: 60px;  /* Adjust icon size */
   color: #ffffff;  /* Icon color */
 }
@@ -315,11 +315,9 @@ a {
   text-align: center;
   z-index: 20; /* Ensures text appears above */
 }
-
-#iPhone-img:hover ~ #mobile-title-text {
+#iPhone-img-preview:hover ~ #mobile-title-text {
   display: none;
 }
-
 /* Define the circular path animation */
 @keyframes rotateCircle {
   0% {
@@ -367,4 +365,3 @@ a {
 /*Laptop (M)*/
 /*Laptop (L)*/
 /*WideScreens*/
-
