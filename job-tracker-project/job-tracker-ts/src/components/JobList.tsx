@@ -11,6 +11,7 @@ export default function JobList({ jobs, onDelete, onStatusChange }: JobListProps
 
   return (
     <div>
+      <br/>
       {jobs.map((job) => (
         <div key={job.id} className="job-card">
           <div>
@@ -33,4 +34,22 @@ export default function JobList({ jobs, onDelete, onStatusChange }: JobListProps
       ))}
     </div>
   );
+}
+
+export function ColorCode(jobs: any[]) {
+  
+  //checks job status 
+jobs.forEach(job => {
+  switch(job.status){
+    case "Applied": 
+    
+    break; 
+
+  }
+  
+});
+
+
+ 
+
 }
